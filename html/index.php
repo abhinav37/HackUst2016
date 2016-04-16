@@ -93,25 +93,86 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <h4>Current Bets</h4>
+                        <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Email</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>john@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>Mary</td>
+                            <td>Moe</td>
+                            <td>mary@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>July</td>
+                            <td>Dooley</td>
+                            <td>july@example.com</td>
+                        </tr>
+                        </tbody>
+                    </table>
                     </div>
                     <div class="col-sm-6">
                         <h4>Hot Startups</h4>
+                        <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>StartUp Name</th>
+                            <th>Number of Bets</th>
+                            <th>Value of Bets</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>john@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>Mary</td>
+                            <td>Moe</td>
+                            <td>mary@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>July</td>
+                            <td>Dooley</td>
+                            <td>july@example.com</td>
+                        </tr>
+                        </tbody>
+                    </table>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="row well text-center">
+        <div class="row well">
                <?php
-                    echo "hello";
-                    for($x = 0; $x <= 10; $x++){
+                    for($x = 1; $x <= 15; $x++){
                         //add query to find max
                         $number = rand(1,10);
-                        $query = "select * from `startup` where `startupID` = \"$number\" ";
-                        $res=mysqli_query($conn, $query) or die ('Failed to query');
-                        $row=mysqli_fetch_array($res);
+                        echo "<div class=\"col-md-4 col-sm-6 col-xs-12\">\n";
+                        echo "<div class=\"media\">\n"; 
+                        echo "  <div class=\"media-left\">\n"; 
+                        echo "    <a href=\"#\">\n"; 
+                        echo "      <img class=\"img-thumbnail\" src=\"../css/images/about.jpg\">\n"; 
+                        echo "    </a>\n"; 
+                        echo "  </div>\n"; 
+                        echo "  <div class=\"media-body\">\n"; 
+                        echo "    <h4 class=\"media-heading\">".$x."</h4>\n"; 
+                        echo "<p> Hello World </p>";
+                        echo "  </div>\n"; 
+                        echo "</div>\n";
+                                                echo "</div>\n";
 
-                    }
+                                            }
                 ?>
 
         </div>

@@ -113,3 +113,6 @@ footer {
     font-weight: bolder;
     padding-top: 0.5em;
 }
+.img-thumbnail {
+  max-width: 64px;
+}
