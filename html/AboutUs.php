@@ -1,3 +1,9 @@
+<?php
+    include_once 'dbconnect.php';
+    session_start();
+    if(isset($_SESSION['userID']))
+        $username = $_SESSION['username'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,11 +13,7 @@
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/index.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="../bootstrap/js/bootstrap.min.js"></script>
- <?php
-session_start();
-include_once 'dbconnect.php';
-?>    
+  <script src="../bootstrap/js/bootstrap.min.js"></script>  
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-static-top">
@@ -43,7 +45,20 @@ include_once 'dbconnect.php';
           </div>
           </form>
         </li>
-        <li><a href="#" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <?php
+            if(isset($_SESSION['userID'])){
+                echo "<li class=\"dropdown\">\n"; 
+                echo "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">". $username ."<span class=\"caret\"></span></a>\n"; 
+                echo "<ul class=\"dropdown-menu\">\n"; 
+                echo "<li><a href=\"#\">Portfolio</a></li>\n"; 
+                echo "<li role=\"separator\" class=\"divider\"></li>\n"; 
+                echo "<li><a href=\"#\">Profile</a></li>\n"; 
+                echo "<li><a href=\"#\">Logout</a></li>\n"; 
+                echo "</ul>\n"; 
+                echo "</li>\n";
+            }else
+                echo "<li><a href=\"#\" data-toggle=\"modal\" data-target=\"#login-modal\"><span class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>\n"; 
+        ?>
       </ul>
     </div>
   </div>

@@ -1,11 +1,14 @@
+<?php
+    include_once 'dbconnect.php';
+    session_start();
+    if(isset($_SESSION['userID']))
+        $username = $_SESSION['username'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<?php
-session_start();
-include_once 'dbconnect.php';
-?>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
@@ -31,8 +34,21 @@ include_once 'dbconnect.php';
         <li><a href="AboutUs.php">About Us</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>0.
+         <?php
+            if(isset($_SESSION['userID'])){
+                echo "<li class=\"dropdown\">\n"; 
+                echo "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">". $username ."<span class=\"caret\"></span></a>\n"; 
+                echo "<ul class=\"dropdown-menu\">\n"; 
+                echo "<li><a href=\"#\">Portfolio</a></li>\n"; 
+                echo "<li role=\"separator\" class=\"divider\"></li>\n"; 
+                echo "<li><a href=\"#\">Profile</a></li>\n"; 
+                echo "<li><a href=\"#\">Logout</a></li>\n"; 
+                echo "</ul>\n"; 
+                echo "</li>\n";
+            }else
+                echo "<li><a href=\"#\" data-toggle=\"modal\" data-target=\"#login-modal\"><span class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>\n"; 
+        ?>
+      </ul>
     </div>
   </div>
 </nav>

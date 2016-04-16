@@ -1,6 +1,8 @@
 <?php
     include_once 'dbconnect.php';
     session_start();
+    if(isset($_SESSION['userID']))
+        $username = $_SESSION['username'];
     $startupID = $_GET['startupID'];
     $query = "select * from `startup` where `startupID` = \"$startupID\" ";
     $res=mysqli_query($conn, $query) or die ('Failed to query');
@@ -67,7 +69,12 @@
           </div>
           </form>
         </li>
-        <li><a href="#" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <?php
+            if(isset($_SESSION['userID']))
+                echo "<li><a href=\"#\">". $username . "</a></li>";
+            else
+                echo "<li><a href=\"#\" data-toggle=\"modal\" data-target=\"#login-modal\"><span class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>\n"; 
+        ?>
       </ul>
     </div>
   </div>

@@ -50,7 +50,19 @@ else{
           </div>
           </form>
         </li>
-        <li><a href="#" > <?php echo $username; ?> </a></li>
+        <?php
+            if(isset($_SESSION['userID'])){
+                echo "<li class=\"dropdown\">\n"; 
+                echo "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">". $username ."<span class=\"caret\"></span></a>\n"; 
+                echo "<ul class=\"dropdown-menu\">\n"; 
+                echo "<li><a href=\"#\">Portfolio</a></li>\n"; 
+                echo "<li role=\"separator\" class=\"divider\"></li>\n"; 
+                echo "<li><a href=\"#\">Profile</a></li>\n"; 
+                echo "<li><a href=\"#\">Logout</a></li>\n"; 
+                echo "</ul>\n"; 
+                echo "</li>\n";
+            }
+        ?>
       </ul>
     </div>
   </div>
