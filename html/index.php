@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once 'dbconnect.php';
 if(isset($_SESSION['userID']))
     header("Location: home.php");
 ?>
@@ -222,19 +223,10 @@ $(document).ready(function(){
 			   data: $("#loginForm").serialize(), // serializes the form's elements.
 			   success: function(data)
 			   {
-				   alert(data);
-<<<<<<< HEAD
-                   
-                      
-                    
-           window.location.replace("home.php");
-    	   }
-			 });
-=======
-                   window.location.replace("home.php");
+				   alert(data);     
+                    window.location.replace("home.php");
     	        }
-        });
->>>>>>> aman
+		});
 		e.preventDefault(); // avoid to execute the actual submit of the form.
 	});
 
