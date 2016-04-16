@@ -85,6 +85,27 @@
         </div>
     </div>
  </div>
+ 
+  <!--Payment Gateway-->
+ <div class="modal fade" id="payment-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="loginmodal-container">
+            <h1>Login to Your Account</h1><br>
+            <form>
+            <input type="text" name="startUp" placeholder="Company Name" required>
+            <input type="text" name="betAmount" placeholder="Amount" required>
+            <input type="text" name="fullName" placeholder="Full Name" required>
+            <input type="text" name="creditCard" placeholder="Credit Card Number" required>
+            <input type="password" name="cvvpass" placeholder="CVV" required>
+            <input type="text" name="expiryDate" placeholder="Expiry Date MM-YYYY" required> 
+            <script>
+            </script>   
+            <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            </form>            
+        </div>
+    </div>
+ </div>
+ 
 <div class="container-fluid" id="ticker">
         <marquee><p>TICKER GOES HERE </p></marquee>
 </div>
@@ -105,7 +126,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <button type="button" class="btn btn-success btn-block">Bet!</button>
+                            <button type="button" class="btn btn-success btn-block"  data-toggle="modal" data-target="#payment-modal">Bet!</button>
                         </div>
                     </div>
                 </div>
@@ -211,9 +232,7 @@
 
 
 </div>
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
+
 </body>  
     
 </html>
