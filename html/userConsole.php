@@ -36,9 +36,9 @@ else{
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li><a href="index.php">Home</a></li>
         <li><a href="companyProfile.php">Company Profiles</a></li>
-        <li><a href="#">About Us</a></li>
+        <li><a href="AboutUs.php">About Us</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -59,8 +59,18 @@ else{
   </div>
 </nav>
 <div class="container-fluid" id="ticker">
-        <marquee><p>TICKER GOES HERE </p></marquee>
-</div>
+        <marquee>
+        <?php
+            $query = "select * from `startup`";
+            $result= mysqli_query($conn, $query) or die ('Failed to query');
+            echo "<p>";
+            while($startup = mysqli_fetch_row($result)) {
+                //var_dump($startup);
+                echo $startup[1] .": " . $startup[7] . " ";
+            }
+            echo "</p>";
+        ?>           
+        </marquee></div>
 
 <div class="container">
     <div class="row">

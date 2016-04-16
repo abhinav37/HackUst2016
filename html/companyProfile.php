@@ -1,14 +1,11 @@
-<?php
-session_start();
-include_once 'dbconnect.php';
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+<?php
+session_start();
+include_once 'dbconnect.php';
+?>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
@@ -29,9 +26,9 @@ include_once 'dbconnect.php';
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="companyProfile.php">Company Profiles</a></li>
-        <li><a href="#">About Us</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li class="active"><a href="companyProfile.php">Company Profiles</a></li>
+        <li><a href="AboutUs.php">About Us</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -40,8 +37,18 @@ include_once 'dbconnect.php';
   </div>
 </nav>
 <div class="container-fluid" id="ticker">
-        <marquee><p>TICKER GOES HERE </p></marquee>
-</div>
+        <marquee>
+        <?php
+            $query = "select * from `startup`";
+            $result= mysqli_query($conn, $query) or die ('Failed to query');
+            echo "<p>";
+            while($startup = mysqli_fetch_row($result)) {
+                //var_dump($startup);
+                echo $startup[1] .": " . $startup[7] . " ";
+            }
+            echo "</p>";
+        ?>           
+        </marquee></div>
 
 <div class="container">
     <div class="row">
