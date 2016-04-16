@@ -224,7 +224,7 @@ $(document).ready(function(){
 			   {
 				   alert(data);
                    
-                        echo $_SESSION['userID'];
+                      
                     
            window.location.replace("home.php");
     	   }
