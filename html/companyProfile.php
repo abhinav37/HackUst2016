@@ -86,7 +86,7 @@ include_once 'dbconnect.php';
                     echo "</thead>\n";
                     for($x = 1; $x <= 15; $x++){
                         //add query to find max
-                        $number = 1;
+                        $number = $x;
                         $query = "select * from `startup` WHERE `startupID` = \"$number\"";
                         $result= mysqli_query($conn, $query) or die ('Failed to query');
                         $startup= mysqli_fetch_array($result); 
@@ -94,7 +94,8 @@ include_once 'dbconnect.php';
                         echo "<tr class=\"companyTile\">\n"; 
                         echo "<td>".$startup['name']."</td>\n"; 
                         echo "<td>".$startup['about']."</td>\n"; 
-                        echo "<td>".$startup['activeUsers']."</td>\n"; 
+                        echo "<td>".$startup['activeUsers']."</td>\n";
+			            echo "<input id=\"startupID\" type=\"hidden\" value=".$x.">"; 
                         echo "</tr>\n"; 
                        }
                     ?>
@@ -124,5 +125,9 @@ include_once 'dbconnect.php';
         }
     });
 });
+	$(".companyTile").on("click", function() {
+		var x = $(this).find("#startupID").val();
+		window.location.replace("profile.php?startupID="+x);
+	});
         </script>
 </html>

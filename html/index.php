@@ -168,12 +168,13 @@ include_once 'dbconnect.php';
                <?php
                     for($x = 1; $x <= 15; $x++){
                         //add query to find max
-                        $number = 1;
+                        $number = $x;
                         $query = "select * from `startup` WHERE `startupID` = \"$number\"";
                         $result= mysqli_query($conn, $query) or die ('Failed to query');
                         $startup= mysqli_fetch_array($result);
                         echo "<div class=\"col-md-4 col-sm-6 col-xs-12\">\n";
-                        echo "<div class=\"media companyTile\">\n"; 
+                        echo "<div class=\"media companyTile\">\n";
+                        echo "<input id=\"startupID\" type=\"hidden\" value=".$number.">";  
                         echo "  <div class=\"media-left\">\n"; 
                         echo "    <a href=\"#\">\n"; 
                         echo "      <img class=\"img-thumbnail\" src=\"".$startup['logo']."\" alt>\n"; 
@@ -230,7 +231,10 @@ $(document).ready(function(){
   });
 });
 
-
+$(".companyTile").on("click", function() {
+		var x = $(this).find("#startupID").val();
+		window.location.replace("profile.php?startupID="+x);
+	});
 </script>
     
 </html>
