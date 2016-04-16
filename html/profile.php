@@ -197,19 +197,19 @@ include_once 'dbconnect.php';
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
 						<?php 
-                                echo '<img src="' . $row['image1'] .'" />';
+                                echo '<img src="../Images/' . $row['image1'] .'" />';
                         ?>
                         </div>
 
                         <div class="item">
 							<?php 
-								echo '<img src="' . $row['image2'] .'" />';
+								echo '<img src="../Images/' . $row['image2'] .'" />';
 							?>	
                         </div>
 
                         <div class="item">
 							<?php 
-								echo '<img src="' . $row['image3'] .'" />';
+								echo '<img src="../Images/' . $row['image3'] .'" />';
 							?>
                         </div>
                     </div>
