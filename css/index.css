@@ -96,7 +96,10 @@ html, body
 .login-help{
   font-size: 12px;
 }
-
+.form-group{
+  padding: 2px;
+  
+}
 footer {
     background-color: #f2f2f2;
     padding: 25px;
@@ -104,9 +107,9 @@ footer {
 }
 #ticker
 {
-    background-color: #191970;
+    background-color: #666;
     background-image: url("images/overlay.png");
-    color: yellow;
+    color: lightgrey;
     font-weight: bolder;
     padding-top: 0.5em;
 }
