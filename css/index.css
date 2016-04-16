@@ -96,3 +96,16 @@ html, body
 .login-help{
   font-size: 12px;
 }
+
+footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+#ticker
+{
+    background-color: slategrey;
+    
+}
