@@ -77,13 +77,13 @@ if(isset($_SESSION["username"]))
  <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="loginmodal-container">
-            <h1>Login to Your Account</h1><br>
-            <form>
+            <h1>Register Account</h1><br>
+            <form id="registerForm">
             <input type="text" name="fName" placeholder="First Name" required>
             <input type="text" name="lName" placeholder="Last Name" required>
             <input type="text" name="user" placeholder="Username" required>
             <input type="password" name="pass" placeholder="Password" required>
-            <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            <input type="submit" name="login" class="login loginmodal-submit" value="Register">
             </form>            
         </div>
     </div>
@@ -150,7 +150,24 @@ $(document).ready(function(){
 			 });
 		e.preventDefault(); // avoid to execute the actual submit of the form.
 	});
+
+    $("#registerForm").submit(function(e) {
+    var url = "register.php"; // the script where you handle the form input.
+    $.ajax({
+         type: "POST",
+         url: url,
+         data: $("#registerForm").serialize(), // serializes the form's elements.
+         success: function(data)
+         {
+           alert(data);
+           window.location.replace("home.php");
+         }
+       });
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+  });
 });
+
+
 </script>
     
 </html>
