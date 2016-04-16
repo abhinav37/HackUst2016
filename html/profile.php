@@ -253,19 +253,21 @@ session_start();
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 text-center">
+                <div class="col-md-12">
                     <h4>
 					<?php
 						$query = "select * from `news` where `startupID` = \"$startupID\" ";
 						$result=mysqli_query($conn, $query) or die ('Failed to query');
 						while($newsArticle = mysqli_fetch_row($result)) {
-							echo "<div class=\"media\">\n"; 
+							
+                            echo "<div class=\"media\">\n"; 
 							echo "  <div class=\"media-left\">\n"; 
-                            echo '<img src="' . $newsArticle['image'] .'" />';
+                            echo '<img src="' . $newsArticle[3] .'" height="45" width="45"/>';
 							echo "  </div>\n"; 
 							echo "  <div class=\"media-body\">\n"; 
-							echo "    <h4 class=\"media-heading\">" . $newsArticle['headline'] . "</h4>\n"; 
-							echo $newsArticle['text']; 
+							echo "    <h2 class=\"media-heading\">" . $newsArticle[1] . "</h2>\n"; 
+							echo "    <p style=\"font-size:80%;\">" . $newsArticle[2] . "</p>\n"; 
+                            echo "    <h style=\"font-size:40%;color:grey;\">" . $newsArticle[4] . "</h>\n"; 
 							echo "  </div>\n"; 
 							echo "</div>\n";
 						}
