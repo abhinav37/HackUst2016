@@ -58,7 +58,7 @@ else{
                 echo "<li><a href=\"#\">Portfolio</a></li>\n"; 
                 echo "<li role=\"separator\" class=\"divider\"></li>\n"; 
                 echo "<li><a href=\"#\">Profile</a></li>\n"; 
-                echo "<li><a href=\"#\">Logout</a></li>\n"; 
+                echo "<li><a href=\"logout.php\">Logout</a></li>\n"; 
                 echo "</ul>\n"; 
                 echo "</li>\n";
             }
@@ -219,6 +219,20 @@ $(document).ready(function(){
          type: "POST",
          url: url,
          data: $("#registerForm").serialize(), // serializes the form's elements.
+         success: function(data)
+         {
+           alert(data);
+           window.location.replace("redirect.php");
+         }
+       });
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+  });
+    ("#signupForm").submit(function(e) {
+    var url = "registerStartup.php"; // the script where you handle the form input.
+    $.ajax({
+         type: "POST",
+         url: url,
+         data: $("#signupForm").serialize(), // serializes the form's elements.
          success: function(data)
          {
            alert(data);

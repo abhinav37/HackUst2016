@@ -53,7 +53,7 @@
                 echo "<li><a href=\"#\">Portfolio</a></li>\n"; 
                 echo "<li role=\"separator\" class=\"divider\"></li>\n"; 
                 echo "<li><a href=\"#\">Profile</a></li>\n"; 
-                echo "<li><a href=\"#\">Logout</a></li>\n"; 
+                echo "<li><a href=\"logout.php\">Logout</a></li>\n"; 
                 echo "</ul>\n"; 
                 echo "</li>\n";
             }else

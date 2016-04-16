@@ -70,9 +70,17 @@
           </form>
         </li>
         <?php
-            if(isset($_SESSION['userID']))
-                echo "<li><a href=\"#\">". $username . "</a></li>";
-            else
+            if(isset($_SESSION['userID'])){
+                echo "<li class=\"dropdown\">\n"; 
+                echo "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">". $username ."<span class=\"caret\"></span></a>\n"; 
+                echo "<ul class=\"dropdown-menu\">\n"; 
+                echo "<li><a href=\"#\">Portfolio</a></li>\n"; 
+                echo "<li role=\"separator\" class=\"divider\"></li>\n"; 
+                echo "<li><a href=\"#\">Profile</a></li>\n"; 
+                echo "<li><a href=\"logout.php\">Logout</a></li>\n"; 
+                echo "</ul>\n"; 
+                echo "</li>\n";
+            }else
                 echo "<li><a href=\"#\" data-toggle=\"modal\" data-target=\"#login-modal\"><span class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>\n"; 
         ?>
       </ul>
@@ -169,7 +177,10 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <button type="button" class="btn btn-success btn-block"  data-toggle="modal" data-target="#payment-modal">Bet!</button>
+                        <?php
+                        if(isset($_SESSION['userID']))
+                            echo "<button type=\"button\" class=\"btn btn-success btn-block\"  data-toggle=\"modal\" data-target=\"#payment-modal\">Bet!</button>\n";
+                        ?>
                         </div>
                     </div>
                 </div>

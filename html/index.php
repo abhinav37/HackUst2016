@@ -1,10 +1,9 @@
 <?php
 session_start();
-<<<<<<< HEAD
+
 include_once "dbconnect.php";
-=======
-include_once 'dbconnect.php';
->>>>>>> ded7d561d3b3e0edde5962bbb0968b5dcb55f2ea
+
+
 if(isset($_SESSION['userID']))
     header("Location: home.php");
 ?>
@@ -64,7 +63,7 @@ if(isset($_SESSION['userID']))
             <form id="loginForm" role="form" class="form text-center">
                 <input type="text" name="user" placeholder="Username">
                 <input type="password" name="pass" placeholder="Password">
-                <label class="radio-inline"><input type="radio" name="loginType" value="1">Better</label>
+                <label class="radio-inline"><input type="radio" name="loginType" value="1">Bettor</label>
                 <label class="radio-inline"><input type="radio" name="loginType" value="2">Start-Up</label>
                 <input type="submit" name="login" class="login loginmodal-submit" value="Login">            
             </form>
@@ -80,12 +79,41 @@ if(isset($_SESSION['userID']))
         <div class="loginmodal-container">
             <h1>Register Account</h1><br>
             <form id="registerForm">
+            <label class="radio-inline"><input type="radio" name="registerType" value="registerType1">Bettor</label>
+            <label class="radio-inline"><input type="radio" name="registerType" value="registerType2">Start-Up</label>
             <input type="text" name="fName" placeholder="First Name" required>
             <input type="text" name="lName" placeholder="Last Name" required>
             <input type="text" name="user" placeholder="Username" required>
             <input type="password" name="pass" placeholder="Password" required>
             <input type="submit" name="login" class="login loginmodal-submit" value="Register">
-            </form>            
+            </form> 
+            <form id="signupForm">
+            <input type="text" name="name" placeholder="Company Name" required>
+            <input type="text" name="about" placeholder="About" required>
+            <input type="text" name="evaluation" placeholder="Evaluation" required>
+            <input type="text" name="annualProfit" placeholder="Annual Profit" required>
+            <input type="text" name="activeUsers" placeholder="Estimated active users" required>
+
+            <input type="submit" name="login" class="login loginmodal-submit" value="Register">
+            </form> 
+
+        </div>
+    </div>
+ </div>
+ <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="loginmodal-container">
+            <h1>Register Account</h1><br>
+            <form id="signupForm" name="signupForm" value="signupForm">
+            <input type="text" name="name" placeholder="Company Name" required>
+            <input type="text" name="about" placeholder="About" required>
+            <input type="text" name="evaluation" placeholder="Evaluation" required>
+            <input type="text" name="annualProfit" placeholder="Annual Profit" required>
+            <input type="text" name="activeUsers" placeholder="Estimated active users" required>
+
+            <input type="submit" name="login" class="login loginmodal-submit" value="Register">
+            </form> 
+
         </div>
     </div>
  </div>
@@ -220,7 +248,11 @@ if(isset($_SESSION['userID']))
 <script>
 console.log("Hello from the other side");
 $(document).ready(function(){
-	$("#loginForm").submit(function(e) {
+	
+    $("input[name$='registerType']").click(function(){var test = $(this).var});
+
+
+    $("#loginForm").submit(function(e) {
 		var url = "login.php"; // the script where you handle the form input.
 		$.ajax({
 			   type: "POST",

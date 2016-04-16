@@ -42,7 +42,7 @@
                 echo "<li><a href=\"#\">Portfolio</a></li>\n"; 
                 echo "<li role=\"separator\" class=\"divider\"></li>\n"; 
                 echo "<li><a href=\"#\">Profile</a></li>\n"; 
-                echo "<li><a href=\"#\">Logout</a></li>\n"; 
+                echo "<li><a href=\"logout.php\">Logout</a></li>\n"; 
                 echo "</ul>\n"; 
                 echo "</li>\n";
             }else
@@ -126,15 +126,12 @@
 </body>  
 <!--Script for Table-->
 <script>
-        $("#search").on("keyup", function() {
+    $("#search").on("keyup", function() {
     var value = $(this).val();
     $("table tr ").each(function(index) {
         if (index !== 0) {
-
             $row = $(this);
-
             var id = $row.find("span").text();
-
             if (id.indexOf(value) !== 0) {
                 $row.hide();
             }
