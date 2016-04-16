@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if(isset($_SESSION["username"]))
+{
+    $username = $_SESSION["username"]
+    header('location:home.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,12 +16,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/index.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="../bootstrap/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="../css/index.css">
+      
 </head>
 <body>
- <nav class="navbar navbar-inverse navbar-static-top">
+<nav class="navbar navbar-inverse navbar-static-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -39,59 +51,51 @@
           </div>
           </form>
         </li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>0.
+        <li><a href="#" ><?php echo $username;></a></li>
+      </ul>
     </div>
   </div>
 </nav>
-<div class="container-fluid" id="ticker">
+    <div class="container-fluid" id="ticker">
         <marquee><p>TICKER GOES HERE </p></marquee>
-</div>
+    </div>
 
-<div class="container">
-    <div class="row">
-        <!--User Console-->
-        <div class="col-md-12">
-           <div class="row">
-                <div class="col-md-12  text-center">
-                    <h2>User Portfolio</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-center">
-                      <table class="table table-bordered table-striped">
-                        <thead>
-                        <tr>
-                            <th>Firstname</th>
-                            <th>Lastname</th>
-                            <th>Email</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>john@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>Mary</td>
-                            <td>Moe</td>
-                            <td>mary@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>July</td>
-                            <td>Dooley</td>
-                            <td>july@example.com</td>
-                        </tr>
-                        </tbody>
-                    </table>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Current Bets</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Hot Startups</h4>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="row well">
+            <div class="col-md-3">
+                 <h4>Company 1</h4>
+            </div>
+            <div class="col-md-3">
+                <h4>Company 2</h4>
+            </div>
+            <div class="col-md-3">
+                <h4>
+                    Company 3
+                </h4>
+            </div>
+            <div class="col-md-3">
+                <h4>
+                    Company 4
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+        </div>
     </div>
-
-
-</div>
 <footer class="container-fluid text-center">
   <p>Footer Text</p>
 </footer>
