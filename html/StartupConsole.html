@@ -1,133 +1,158 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="../bootstrap/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="../css/index.css">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src=
+  "https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
+  </script>
+  <script src="../bootstrap/js/bootstrap.min.js">
+  </script>
+  <link href="../css/index.css" rel="stylesheet">
+  <title></title>
 </head>
 <body>
- <nav class="navbar navbar-inverse navbar-static-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">BetNvest</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Company Profiles</a></li>
-        <li><a href="#">About Us</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <form class="navbar-form navbar-left" role="search">
-          <!-- Define a button to toggle the search area -->
-          <!-- Create your entire search form -->
-          <div id="search-form" class="form-group">
-            <div class="input-group">
-              <span id="search-icon" class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-          </div>
-          </form>
-        </li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>0.
-    </div>
-  </div>
-</nav>
-<div class="container-fluid" id="ticker">
-    <p>TICKET GOES HERE </p>
-</div>
-
-<div class="container">
-    <div class="row">
-        <!--User Console-->
-        <div class="col-md-12">
-           <div class="row">
-                <div class="col-md-12  text-center">
-                    <h2>Company Portfolio</h2>
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle" data-target="#myNavbar" data-toggle=
+        "collapse" type="button"><span class="icon-bar"></span> <span class=
+        "icon-bar"></span> <span class="icon-bar"></span></button> <a class=
+        "navbar-brand" href="#">BetNvest</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">Company Profiles</a>
+          </li>
+          <li>
+            <a href="#">About Us</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <form class="navbar-form navbar-left" role="search">
+              <!-- Define a button to toggle the search area -->
+              <!-- Create your entire search form -->
+              <div class="form-group" id="search-form">
+                <div class="input-group">
+                  <span class="input-group-addon" id="search-icon"><span class=
+                  "glyphicon glyphicon-search"></span></span> <input class=
+                  "form-control" placeholder="Search" type="text">
                 </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12"> 
-  <div class="container">
-  <div class="col-md-6"> 
-   <div class="col-md-12">
-       <h2>Upload Files</h2>       
-          <h4>Select Image from your computer</h4>
-         
-          <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
-            <div class="form-inline">
-              <div class="form-group">
-                <input type="file" name="files[]" id="js-upload-files" multiple>
               </div>
-              <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload Image</button>
-            </div>
-          </form>
-          <h4>Or drag and drop files below</h4>
-          <div class="upload-drop-zone" id="drop-zone">
-            Just drag and drop files here
-          </div>
-   </div>
-   <div class="col-md-12">
-<div class="row">
-    <div class="col-md-6">
-    <div class="form-group has-success has-feedback">
-      <label for="CuEval">Current evaluation</label>
-      <input type="text" class="form-control" id="CuEval">
-      <span class="	glyphicon glyphicon-usd form-control-feedback"></span>
+            </form>
+          </li>
+          <li>
+            <a href="#"><span class="glyphicon glyphicon-log-in"></span>
+            Login</a>
+          </li>
+        </ul>0.
+      </div>
     </div>
-</div>
- <div class="col-md-6">
-    <div class="form-group has-success has-feedback">
-      <label for="CuEval">Projected profit</label>
-      <input type="text" class="form-control" id="CuEval">
-      <span class="	glyphicon glyphicon-usd form-control-feedback"></span>
-    </div>
-</div>
- <div class="col-md-6">
-    <div class="form-group has-success has-feedback">
-      <label for="CuEval">Estimated active users</label>
-     <span class="	glyphicon glyphicon-usd form-control-feedback"></span>
-      <input type="text" class="form-control" id="CuEval">
-      
-    </div>
-   </div>
-</div>    
+  </nav>
+  <div class="container-fluid" id="ticker">
 
-</div>
+    <marquee></marquee>
+
+    <p><marquee>TICKER GOES HERE</marquee></p><marquee></marquee>
   </div>
-  <div class="col-md-6"> 
-  <h2>Update News</h2>
-  <p>Input upto 320 character</p>
-  <form role="form">
-    <div class="form-group">
-      <label for="comment">Comment:</label>
-    
-<textarea class="form-control" rows="5" id="comment"></textarea>
-    </div></div>     
-  </form>
-</div>
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2>Company Portfolio</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="container">
 
+                <!--Update News Form-->
+
+              <div class="col-md-6">
+                <h2>Update News</h2>
+                <form role="form">
+                  <div class="form-group">
+                    <label for="comment">Comment:</label> 
+                    <textarea class="form-control" id="comment" rows=
+                    "5"></textarea>
+                  </div>
+                  <h2>Upload Image for news</h2>
+                  <form action="" enctype="multipart/form-data" id=
+                  "js-upload-form" method="post" name="js-upload-form">
+                    <div class="form-inline">
+                      <div class="form-group">
+                        <input id="js-upload-files" multiple name="files[]"
+                        type="file">
+                      </div><button class="btn btn-sm btn-primary" id=
+                      "js-upload-submit" type="submit">Upload Image</button>
+                    </div>
+                  </form>
+                </form>
+              </div>
+
+              <!--Update Info Form-->
+              <div class="col-md-6">
+                <h2>Update Description</h2>
+                <form role="form">
+                  <div class="form-group">
+                    <label for="comment">Comment:</label> 
+                    <textarea class="form-control" id="comment" rows=
+                    "5"></textarea>
+                  </div>
+                </form>
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                    <div class="form-group has-success has-feedback">
+                        <label for="CuEval">Current evaluation</label>
+                        <input class="form-control" id="CuEval" type="text">
+                        <span class=
+                        " glyphicon glyphicon-usd form-control-feedback"></span>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group has-success has-feedback">
+                        <label for="CuEval">Projected profit</label> <input class=
+                        "form-control" id="CuEval" type="text"> <span class=
+                        " glyphicon glyphicon-usd form-control-feedback"></span>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group has-success has-feedback">
+                        <label for="CuEval">Estimated active users</label>
+                        <span class=
+                        " glyphicon glyphicon-usd form-control-feedback"></span>
+                        <input class="form-control" id="CuEval" type="text">
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <h2>Upload Profile</h2>
+                    <form action="" enctype="multipart/form-data" id="js-upload-form" method="post" name="js-upload-form">
+                    <div class="form-inline">
+                        <div class="form-group">
+                        <input id="js-upload-files" multiple name="files[]"
+                        type="file">
+                        </div><button class="btn btn-sm btn-primary" id=
+                        "js-upload-submit" type="submit">Upload
+                        Image</button>
+                    </div>
+                    </form>
+                </div>
+                </div>
 
             </div>
-        </div>
-    </div>
-
-
-</div>
-</div>
-</div>
-</body>  
-    
+           </div>
+          </div>
+         </div>
+     </div>
+  </div>
+</body>
 </html>
