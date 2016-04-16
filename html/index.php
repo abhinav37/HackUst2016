@@ -1,7 +1,7 @@
 <?php
-// make db_connect
 session_start();
-include_once 'dbconnect.php';
+if(isset($_SESSION['userID']))
+    header("Location: home.php");
 ?>
 
 <!DOCTYPE html>
@@ -223,12 +223,18 @@ $(document).ready(function(){
 			   success: function(data)
 			   {
 				   alert(data);
+<<<<<<< HEAD
                    
                       
                     
            window.location.replace("home.php");
     	   }
 			 });
+=======
+                   window.location.replace("home.php");
+    	        }
+        });
+>>>>>>> aman
 		e.preventDefault(); // avoid to execute the actual submit of the form.
 	});
 
@@ -241,7 +247,7 @@ $(document).ready(function(){
          success: function(data)
          {
            alert(data);
-           window.location.replace("home.php");
+           window.location.replace("redirect.php");
          }
        });
     e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -249,9 +255,9 @@ $(document).ready(function(){
 });
 
 $(".companyTile").on("click", function() {
-		var x = $(this).find("#startupID").val();
-		window.location.replace("profile.php?startupID="+x);
-	});
+	var x = $(this).find("#startupID").val();
+	window.location.replace("profile.php?startupID="+x);
+});
 </script>
     
 </html>
