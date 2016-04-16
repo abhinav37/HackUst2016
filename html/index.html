@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if(isset($_SESSION["username"]))
+{
+    header('location:home.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -134,8 +144,9 @@ $(document).ready(function(){
 			   data: $("#loginForm").serialize(), // serializes the form's elements.
 			   success: function(data)
 			   {
-				   console.log(data);
-			   }
+				   alert(data);
+           window.location.replace("home.php");
+    	   }
 			 });
 		e.preventDefault(); // avoid to execute the actual submit of the form.
 	});
