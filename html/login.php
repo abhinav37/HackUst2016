@@ -17,6 +17,7 @@ $row=mysqli_fetch_array($res);
 	
 
 	$_SESSION['userID']= $row['userID'];
+	$_SESSION['username']=$row['username'];
 	echo "Successfully logged in as " . $row['username'];
  }
  else

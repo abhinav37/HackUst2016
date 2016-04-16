@@ -201,7 +201,7 @@ include_once 'dbconnect.php';
 console.log("Hello from the other side");
 $(document).ready(function(){
 	$("#loginForm").submit(function(e) {
-		var url = "index.php"; // the script where you handle the form input.
+		var url = "login.php"; // the script where you handle the form input.
 		$.ajax({
 			   type: "POST",
 			   url: url,
@@ -209,6 +209,9 @@ $(document).ready(function(){
 			   success: function(data)
 			   {
 				   alert(data);
+                   
+                        echo $_SESSION['userID'];
+                    
            window.location.replace("home.php");
     	   }
 			 });
