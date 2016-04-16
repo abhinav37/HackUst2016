@@ -1,5 +1,6 @@
 <?php
 include_once 'dbconnect.php';
+session_start();
 	$startupID = $_GET['startupID'];
 	$query = "select * from `startup` where `startupID` = \"$startupID\" ";
 	$res=mysqli_query($conn, $query) or die ('Failed to query');
@@ -15,6 +16,24 @@ include_once 'dbconnect.php';
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="../bootstrap/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../css/index.css">
+<script>
+    $(document).ready(function(){
+        console.log("hello");
+        $("#bettingForm").submit(function(e) {
+            var url = "addBet.php"; // the script where you handle the form input./f
+            $.ajax({
+                   type: "POST",
+                   url: url,
+                   data: $("#bettingForm").serialize(), // serializes the form's elements.
+                   success: function(data)
+                   {
+                       alert(data);
+                    }   
+            });
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+        });
+    });
+</script>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-static-top">
@@ -89,17 +108,12 @@ include_once 'dbconnect.php';
  <div class="modal fade" id="payment-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="loginmodal-container">
-            <h1>Login to Your Account</h1><br>
-            <form>
-            <input type="text" name="startUp" placeholder="Company Name" required>
-            <input type="text" name="betAmount" placeholder="Amount" required>
-            <input type="text" name="fullName" placeholder="Full Name" required>
-            <input type="text" name="creditCard" placeholder="Credit Card Number" required>
-            <input type="password" name="cvvpass" placeholder="CVV" required>
-            <input type="text" name="expiryDate" placeholder="Expiry Date MM-YYYY" required> 
-            <script>
-            </script>   
-            <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            <h1>Enter the amount</h1><br>
+            <form name="bettingForm" id="bettingForm">
+                <input type="hidden" id="odds" name="odds" value="<?php echo $row['odds']; ?>">
+                <input type="hidden" id="startupID" name="startupID" value="<?php echo $startupID; ?>">
+                <input type="text" name="amount" id="amount" placeholder="Amount" required>
+                <input type="submit" value="Bet!">
             </form>            
         </div>
     </div>
@@ -254,5 +268,5 @@ include_once 'dbconnect.php';
 </div>
 
 </body>  
-    
+
 </html>
