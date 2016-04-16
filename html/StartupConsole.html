@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +36,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li>
             <form action="" enctype="multipart/form-data" id=
-                  "descForm" method="post" name="js-upload-form">
+                  "infoForm" method="post" name="js-upload-form">
               <!-- Define a button to toggle the search area -->
               <!-- Create your entire search form -->
               <div class="form-group" id="search-form">
@@ -74,7 +73,8 @@
             <div class="container">
 
                 <!--Update News Form-->
-
+ <form role="form">
+                  <div class="form-group">
               <div class="col-md-6">
                 <h2>Update News</h2>
                
@@ -87,22 +87,23 @@
                   
                     <div class="form-inline">
                       <div class="form-group">
-                        <input id="js-upload-files" multiple name="files[]"
+                        <input id="js-upload-files" multiple name="fileToUpload"
                         type="file">
                       </div>
                     </div>
-                    
-                  
+                    <button class="btn btn-sm btn-primary" id="js-submit" type="submit">Submit</button>
+                  </form>
+                   </div>
               </div>
 
               <!--Update Info Form-->
             
               <div class="col-md-6">
                 <h2>Update Description</h2>
-                <form role="form">
+                <form role="form" id="descForm">
                   <div class="form-group">
                     <label for="description">Comment:</label> 
-                    <textarea class="form-control" id="description" rows=
+                    <textarea name = "description" class="form-control" id="description" rows=
                     "5"></textarea>
                   </div>
            
@@ -110,7 +111,7 @@
                     <div class="col-md-6">
                     <div class="form-group has-success has-feedback">
                         <label for="CuEval">Current evaluation</label>
-                        <input class="form-control" id="CuEval" type="text">
+                        <input name = "CuEval" class="form-control" id="CuEval" type="text">
                         <span class=
                         " glyphicon glyphicon-usd form-control-feedback"></span>
                     </div>
@@ -118,7 +119,7 @@
                     <div class="col-md-6">
                     <div class="form-group has-success has-feedback">
                         <label for="profit">Projected profit</label> <input class=
-                        "form-control" id="profit" type="text"> <span class=
+                        "form-control" id="profit" type="text" name = "profit"> <span class=
                         " glyphicon glyphicon-usd form-control-feedback"></span>
                     </div>
                     </div>
@@ -127,7 +128,7 @@
                         <label for="activeUsers">Estimated active users</label>
                         <span class=
                         " glyphicon glyphicon-usd form-control-feedback"></span>
-                        <input class="form-control" id="activeUsers" type="text">
+                        <input  name = "activeUsers" class="form-control" id="activeUsers" type="text">
                     </div>
                     </div>
                 </div>
@@ -137,7 +138,7 @@
                     
                     <div class="form-inline">
                         <div class="form-group">
-                        <input id="js-upload-files" multiple name="files[]" type="file">
+                        <input id="js-upload-files" multiple name="fileToUpload" type="file">
                         </div>
                         
                     </div>
@@ -148,7 +149,7 @@
                     
                     <div class="form-inline">
                         <div class="form-group">
-                        <input id="js-upload-files" multiple name="files[]" type="file">
+                        <input id="js-upload-files" multiple name="fileToUpload" type="file">
                         </div>
                         
                     </div>
@@ -162,7 +163,7 @@
                     
                     <div class="form-inline">
                         <div class="form-group">
-                        <input id="js-upload-files" multiple name="files[]" type="file">
+                        <input id="fileToUpload1" multiple name="fileToUpload1" type="file">
                         </div>
                         
                     </div>
@@ -173,7 +174,7 @@
                     
                     <div class="form-inline">
                         <div class="form-group">
-                        <input id="js-upload-files" multiple name="files[]" type="file">
+                        <input id="js-upload-files" multiple name="fileToUpload" type="file">
                         </div>
                      
                         </div><button class="btn btn-sm btn-primary" id="js-submit" type="submit">Submit</button>
@@ -195,7 +196,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
   $("#descForm").submit(function(e) {
-    alert("desc form");
+        alert("desc form");
     var url = "StartupConsole.php"; // the script where you handle the form input.
     $.ajax({
          type: "POST",

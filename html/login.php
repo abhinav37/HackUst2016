@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 include_once("dbconnect.php");
 
 $user = mysql_real_escape_string($_POST['user']);

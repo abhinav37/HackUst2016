@@ -8,9 +8,14 @@ include_once 'dbconnect.php';
   $description = mysql_real_escape_string($_POST['description']);
  
   
-
- $query = "UPDATE startup SET evaluation = '$evaluation', annualProfit='$profit',activeUsers='$activeUsers', about='$description') WHERE 'startupid' = 1" ;
- echo $evaluation;
+  
+ $query = "UPDATE startup SET evaluation = '$evaluation', annualProfit='$profit',activeUsers='$activeUsers', about='$description' WHERE startupID = 1" ;
+ 	$fileName = $_FILES['fileToUpload1']['name'];
+	$tmpName  = $_FILES['fileToUpload1']['tmp_name'];
+	$target_file = "files/" . basename($fileName);
+	var_dump($fileName);
+	move_uploaded_file($tmpName, $target_file);
+ 
   
  if(mysqli_query($conn, $query))
  {
@@ -20,5 +25,6 @@ include_once 'dbconnect.php';
  else
  {
     echo "fail";
- }
+ } //annualProfit='$profit',activeUsers='$activeUsers', about='$description'
 ?>
+
