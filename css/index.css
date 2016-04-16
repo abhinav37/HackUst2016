@@ -129,10 +129,18 @@ footer {
 
 .tickerName{
 }
-
 .tickerValue
 {
-    color:yellow;
+    color:lightgreen;
+}
+.tickerValueplus
+{
+    color:lightgreen;
+}
+
+.tickerValueminus
+{
+  color:#ff3333;
 }
 .companyTile
 {

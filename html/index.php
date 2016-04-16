@@ -1,6 +1,10 @@
 <?php
 session_start();
+<<<<<<< HEAD
 include_once "dbconnect.php";
+=======
+include_once 'dbconnect.php';
+>>>>>>> ded7d561d3b3e0edde5962bbb0968b5dcb55f2ea
 if(isset($_SESSION['userID']))
     header("Location: home.php");
 ?>
@@ -93,11 +97,12 @@ if(isset($_SESSION['userID']))
             echo "<p>";
             while($startup = mysqli_fetch_row($result)) {
                 //var_dump($startup);
-                echo $startup[1] .": " . $startup[7] . " ";
+                echo "<span class=\"tickerName\">" . $startup[1] .": </span><span class=\"tickerValue\">" . $startup[7] . " </span> &nbsp; &nbsp ";
             }
             echo "</p>";
         ?>           
-        </marquee>    </div>
+        </marquee>
+    </div>
 
     <div class="container">
         <div class="row">
@@ -223,19 +228,10 @@ $(document).ready(function(){
 			   data: $("#loginForm").serialize(), // serializes the form's elements.
 			   success: function(data)
 			   {
-				   alert(data);
-<<<<<<< HEAD
-                   
-                      
-                    
-           window.location.replace("home.php");
-    	   }
-			 });
-=======
-                   window.location.replace("home.php");
+				   alert(data);     
+                    window.location.replace("home.php");
     	        }
-        });
->>>>>>> aman
+		});
 		e.preventDefault(); // avoid to execute the actual submit of the form.
 	});
 
