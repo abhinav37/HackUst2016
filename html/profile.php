@@ -1,7 +1,6 @@
 <?php
 include_once 'dbconnect.php';
-	//$startupID = $_GET['startupID'];
-    $startupID = 1;
+	$startupID = $_GET['startupID'];
 	$query = "select * from `startup` where `startupID` = \"$startupID\" ";
 	$res=mysqli_query($conn, $query) or die ('Failed to query');
 	$row=mysqli_fetch_array($res);
