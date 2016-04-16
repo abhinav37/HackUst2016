@@ -117,13 +117,22 @@ include_once 'dbconnect.php';
                 echo $startup[1] .": " . $startup[7] . " ";
             }
             echo "</p>";
-        ?>
-
-            
+        ?>           
         </marquee>
 </div>
 
 <div class="container">
+    <div class ="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="companyProfile.php">Company Profiles</a></li>
+            <?php
+				echo "<li class=\"active\">". $row['name'] . "</li>";
+            ?></li>
+        </ol>
+    </div>    
+    </div>
     <div class="row">
         <!--Company Information div-->
         <div class="col-md-8">

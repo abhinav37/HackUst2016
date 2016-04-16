@@ -8,7 +8,10 @@
   <link rel="stylesheet" href="../css/index.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="../bootstrap/js/bootstrap.min.js"></script>
-      
+ <?php
+session_start();
+include_once 'dbconnect.php';
+?>    
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-static-top">
@@ -62,7 +65,7 @@
             </div>
         </div>
     </div>
- </div>
+</div>
  <!--Registration-->
  <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
@@ -79,35 +82,41 @@
     </div>
  </div>
     <div class="container-fluid" id="ticker">
-       <p><marquee>TICKER GOES HERE </marquee></p>
+        <marquee>
+        <?php
+            $query = "select * from `startup`";
+            $result= mysqli_query($conn, $query) or die ('Failed to query');
+            echo "<p>";
+            while($startup = mysqli_fetch_row($result)) {
+                //var_dump($startup);
+                echo $startup[1] .": " . $startup[7] . " ";
+            }
+            echo "</p>";
+        ?>           
+        </marquee>
     </div>
 
     <div class="container">
         <div class="about">
-        <div class="row">
-            <div class="col-md-12 well">
-                <div class="row">
+            <div class="row">
+                <div class="col-md-12 well">
+                    <div class="row">
         
-                    <div class="col-md-6">
+                        <div class="col-md-6">
                         <h1>About Us</h1>
                         <p>We code a sometimes ......and play cod except aman who only wants to play cod on the playstation thats it i guess</p>
                      
-                    </div>
-                    <div class="col-md-6">
+                        </div>
+                        <div class="col-md-6">
                         <img src="../css/images/about.jpg" class="img-rounded" alt="Cinque Terre" width="400" height="400">
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
-  </div>
-        <div class="row">
-            <div class="col-md-12">
-            </div>
-        </div>
     </div>
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
+
+
 </body>  
     
 </html>

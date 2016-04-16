@@ -59,8 +59,18 @@ else{
   </div>
 </nav>
 <div class="container-fluid" id="ticker">
-        <marquee><p>TICKER GOES HERE </p></marquee>
-</div>
+        <marquee>
+        <?php
+            $query = "select * from `startup`";
+            $result= mysqli_query($conn, $query) or die ('Failed to query');
+            echo "<p>";
+            while($startup = mysqli_fetch_row($result)) {
+                //var_dump($startup);
+                echo $startup[1] .": " . $startup[7] . " ";
+            }
+            echo "</p>";
+        ?>           
+        </marquee></div>
 
 <div class="container">
     <div class="row">
