@@ -190,7 +190,7 @@ include_once 'dbconnect.php';
                         echo "<input id=\"startupID\" type=\"hidden\" value=".$number.">";  
                         echo "  <div class=\"media-left\">\n"; 
                         echo "    <a href=\"#\">\n"; 
-                        echo "      <img class=\"img-thumbnail\" src=\"".$startup['logo']."\" alt>\n"; 
+                        echo "      <img class=\"img-thumbnail\" src=\"../Images/".$startup['logo']."\" alt>\n"; 
                         echo "    </a>\n"; 
                         echo "  </div>\n"; 
                         echo "  <div class=\"media-body\">\n"; 
