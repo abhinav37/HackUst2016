@@ -100,12 +100,13 @@ html, body
 footer {
     background-color: #f2f2f2;
     padding: 25px;
-    position:absolute;
-    bottom:0;
     width:100%;
 }
 #ticker
 {
-    background-color: slategrey;
-    
+    background-color: #191970;
+    background-image: url("images/overlay.png");
+    color: yellow;
+    font-weight: bolder;
+    padding-top: 0.5em;
 }
