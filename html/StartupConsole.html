@@ -36,7 +36,8 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <form class="navbar-form navbar-left" role="search">
+            <form action="" enctype="multipart/form-data" id=
+                  "descForm" method="post" name="js-upload-form">
               <!-- Define a button to toggle the search area -->
               <!-- Create your entire search form -->
               <div class="form-group" id="search-form">
@@ -46,7 +47,7 @@
                   "form-control" placeholder="Search" type="text">
                 </div>
               </div>
-            </form>
+            
           </li>
           <li>
             <a href="#"><span class="glyphicon glyphicon-log-in"></span>
@@ -76,36 +77,36 @@
 
               <div class="col-md-6">
                 <h2>Update News</h2>
-                <form role="form">
+               
                   <div class="form-group">
-                    <label for="comment">Comment:</label> 
-                    <textarea class="form-control" id="comment" rows=
+                    <label for="news">Comment:</label> 
+                    <textarea class="form-control" id="news" rows=
                     "5"></textarea>
                   </div>
                   <h2>Upload Image for News</h2>
-                  <form action="" enctype="multipart/form-data" id=
-                  "js-upload-form" method="post" name="js-upload-form">
+                  
                     <div class="form-inline">
                       <div class="form-group">
                         <input id="js-upload-files" multiple name="files[]"
                         type="file">
-                      </div><button class="btn btn-sm btn-primary" id=
-                      "js-upload-submit" type="submit">Upload Image</button>
+                      </div>
                     </div>
+                    <button class="btn btn-sm btn-primary" id="js-submit" type="submit">Submit</button>
                   </form>
-                </form>
               </div>
 
               <!--Update Info Form-->
+              <form action="" enctype="multipart/form-data" id=
+                  "infoForm" method="post" name="js-upload-form">
               <div class="col-md-6">
                 <h2>Update Description</h2>
                 <form role="form">
                   <div class="form-group">
-                    <label for="comment">Comment:</label> 
-                    <textarea class="form-control" id="comment" rows=
+                    <label for="description">Comment:</label> 
+                    <textarea class="form-control" id="description" rows=
                     "5"></textarea>
                   </div>
-                </form>
+           
                 <div class="col-md-12">
                     <div class="col-md-6">
                     <div class="form-group has-success has-feedback">
@@ -117,69 +118,66 @@
                     </div>
                     <div class="col-md-6">
                     <div class="form-group has-success has-feedback">
-                        <label for="CuEval">Projected profit</label> <input class=
-                        "form-control" id="CuEval" type="text"> <span class=
+                        <label for="profit">Projected profit</label> <input class=
+                        "form-control" id="profit" type="text"> <span class=
                         " glyphicon glyphicon-usd form-control-feedback"></span>
                     </div>
                     </div>
                     <div class="col-md-6">
                     <div class="form-group has-success has-feedback">
-                        <label for="CuEval">Estimated active users</label>
+                        <label for="activeUsers">Estimated active users</label>
                         <span class=
                         " glyphicon glyphicon-usd form-control-feedback"></span>
-                        <input class="form-control" id="CuEval" type="text">
+                        <input class="form-control" id="activeUsers" type="text">
                     </div>
                     </div>
                 </div>
                   <div class="col-md-6">
                 <div class="col-md-12">
                     <h4>Upload Logo</h4>
-                    <form action="" enctype="multipart/form-data" id="js-upload-form" method="post" name="js-upload-form">
+                    
                     <div class="form-inline">
                         <div class="form-group">
                         <input id="js-upload-files" multiple name="files[]" type="file">
                         </div>
-                        <button class="btn btn-sm btn-primary" id="js-upload-submit" type="submit">Upload Image</button>
+                        
                     </div>
-                    </form>
+                    
                 </div>
                  <div class="col-md-12">
                     <h4>Upload Pic2</h4>
-                    <form action="" enctype="multipart/form-data" id="js-upload-form" method="post" name="js-upload-form">
+                    
                     <div class="form-inline">
                         <div class="form-group">
                         <input id="js-upload-files" multiple name="files[]" type="file">
                         </div>
-                        <button class="btn btn-sm btn-primary" id="js-upload-submit" type="submit">Upload Image</button>
+                        
                     </div>
-                    </form>
+                    
                 </div>
                 </div>
                 
                   <div class="col-md-6">
                  <div class="col-md-12">
                     <h4>Upload Pic1</h4>
-                    <form action="" enctype="multipart/form-data" id="js-upload-form" method="post" name="js-upload-form">
+                    
                     <div class="form-inline">
                         <div class="form-group">
                         <input id="js-upload-files" multiple name="files[]" type="file">
                         </div>
-                        <button class="btn btn-sm btn-primary" id="js-upload-submit" type="submit">Upload Image</button>
+                        
                     </div>
-                    </form>
+                   
                 </div>
                  <div class="col-md-12">
                     <h4>Upload Pic3</h4>
-                    <form action="" enctype="multipart/form-data" id="js-upload-form" method="post" name="js-upload-form">
+                    
                     <div class="form-inline">
                         <div class="form-group">
                         <input id="js-upload-files" multiple name="files[]" type="file">
                         </div>
-                        <button class="btn btn-sm btn-primary" id="js-upload-submit" type="submit">Upload Image</button>
-                        <input id="js-upload-files" multiple name="files[]"
-                        type="file">
-                        </div><button class="btn btn-sm btn-primary" id="js-upload-submit" type="submit">Upload
-                        Image</button>
+                     
+                        </div><button class="btn btn-sm btn-primary" id="js-submit" type="submit">Submit</button>
                     </div>
                     </form>
                 </div>
@@ -194,4 +192,39 @@
      </div>
   </div>
 </body>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#descForm").submit(function(e) {
+    alert("desc form");
+    var url = "StartupConsole.php"; // the script where you handle the form input.
+    $.ajax({
+         type: "POST",
+         url: url,
+         data: $("#descForm").serialize(), // serializes the form's elements.
+         success: function(data)
+         {
+           alert(data);
+         }
+       });
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+  });
+
+    $("#infoForm").submit(function(e) {
+      alert("info form");
+    var url = "StartupConsole.php"; // the script where you handle the form input.
+    $.ajax({
+         type: "POST",
+         url: url,
+         data: $("#infoForm").serialize(), // serializes the form's elements.
+         success: function(data)
+         {
+           alert(data);
+           window.location.replace("home.php");
+         }
+       });
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+  });
+});
+</script>
+
 </html>
