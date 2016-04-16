@@ -1,11 +1,5 @@
 <?php
-session_start();
-
-if(isset($_SESSION["username"]))
-{
-    $username = $_SESSION["username"]
-    header('location:home.php');
-}
+// make db_connect
 
 ?>
 
@@ -97,32 +91,29 @@ if(isset($_SESSION["username"]))
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-sm-6">
                         <h4>Current Bets</h4>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-sm-6">
                         <h4>Hot Startups</h4>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row well">
-            <div class="col-md-3 col-sd-6">
-                 <h4>Company 1</h4>
-            </div>
-            <div class="col-md-3 col-sd-6">
-                <h4>Company 2</h4>
-            </div>
-            <div class="col-md-3 col-sd-6">
-                <h4>
-                    Company 3
-                </h4>
-            </div>
-            <div class="col-md-3 col-sd-6">
-                <h4>
-                    Company 4
-                </h4>
-            </div>
+        
+        <div class="row well text-center">
+               <?php
+                    echo "hello";
+                    for($x = 0; $x <= 10; $x++){
+                        //add query to find max
+                        $number = rand(1,10);
+                        $query = "select * from `startup` where `startupID` = \"$number\" ";
+                        $res=mysqli_query($conn, $query) or die ('Failed to query');
+                        $row=mysqli_fetch_array($res);
+
+                    }
+                ?>
+
         </div>
         <div class="row">
             <div class="col-md-12">
