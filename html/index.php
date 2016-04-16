@@ -166,9 +166,22 @@ include_once 'dbconnect.php';
         
         <div class="row well">
                <?php
-                    for($x = 1; $x <= 15; $x++){
+                    $res = mysqli_query($conn, $query);
+                    $count = mysqli_num_rows($res);
+                    $unique = [];
+                    if($count > 15)
+                    {
+                        $y = 15;
+                    }
+                    else {
+                        $y = $count;
+                    }
+                    for($x = 1; $x <= $y; $x++){
                         //add query to find max
-                        $number = $x;
+                        $number = rand(1, $count);
+                        while(in_array($number, $unique))
+                            $number = rand(1, $count);
+                        array_push($unique, $number);    
                         $query = "select * from `startup` WHERE `startupID` = \"$number\"";
                         $result= mysqli_query($conn, $query) or die ('Failed to query');
                         $startup= mysqli_fetch_array($result);
@@ -182,7 +195,7 @@ include_once 'dbconnect.php';
                         echo "  </div>\n"; 
                         echo "  <div class=\"media-body\">\n"; 
                         echo "    <h4 class=\"media-heading\">".$startup['name']."</h4>\n"; 
-                        echo "<p> .. </p>";
+                        echo "<p>".$startup['about']."</p>";
                         echo "  </div>\n"; 
                         echo "</div>\n";
                         echo "</div>\n";
