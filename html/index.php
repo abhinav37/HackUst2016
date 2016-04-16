@@ -1,13 +1,14 @@
 <?php
+// make db_connect
 session_start();
 include_once 'dbconnect.php';
 
-if(isset($_SESSION["username"]))
+if(isset($_SESSION['userID']))
 {
-    $username = $_SESSION["username"]
-    header('location:home.php');
+ 	header("Location: home.html");
+}else{
+	header("Location: index.php");
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -35,8 +36,8 @@ if(isset($_SESSION["username"]))
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Company Profiles</a></li>
+        <li class="active"><a href="index.php">Home</a></li>
+        <li><a href="companyProfile.php">Company Profiles</a></li>
         <li><a href="#">About Us</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -100,41 +101,98 @@ if(isset($_SESSION["username"]))
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-sm-6">
                         <h4>Current Bets</h4>
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Email</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>john@example.com</td>
+                            </tr>
+                            <tr>
+                                <td>Mary</td>
+                                <td>Moe</td>
+                                <td>mary@example.com</td>
+                            </tr>
+                            <tr>
+                                <td>July</td>
+                                <td>Dooley</td>
+                                <td>july@example.com</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-sm-6">
                         <h4>Hot Startups</h4>
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>StartUp Name</th>
+                                <th>Number of Bets</th>
+                                <th>Value of Bets</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>john@example.com</td>
+                            </tr>
+                            <tr>
+                                <td>Mary</td>
+                                <td>Moe</td>
+                                <td>mary@example.com</td>
+                            </tr>
+                            <tr>
+                                <td>July</td>
+                                <td>Dooley</td>
+                                <td>july@example.com</td>
+                            </tr>
+                            </tbody>
+                         </table>
                     </div>
                 </div>
             </div>
         </div>
+        
         <div class="row well">
-            <div class="col-md-3">
-                 <h4>Company 1</h4>
-            </div>
-            <div class="col-md-3">
-                <h4>Company 2</h4>
-            </div>
-            <div class="col-md-3">
-                <h4>
-                    Company 3
-                </h4>
-            </div>
-            <div class="col-md-3">
-                <h4>
-                    Company 4
-                </h4>
-            </div>
+               <?php
+                    for($x = 1; $x <= 15; $x++){
+                        //add query to find max
+                        $number = 1;
+                        $query = "select * from `startup` WHERE `startupID` = \"$number\"";
+                        $result= mysqli_query($conn, $query) or die ('Failed to query');
+                        $startup= mysqli_fetch_array($result);
+                        echo "<div class=\"col-md-4 col-sm-6 col-xs-12\">\n";
+                        echo "<div class=\"media companyTile\">\n"; 
+                        echo "  <div class=\"media-left\">\n"; 
+                        echo "    <a href=\"#\">\n"; 
+                        echo "      <img class=\"img-thumbnail\" src=\"".$startup['logo']."\" alt>\n"; 
+                        echo "    </a>\n"; 
+                        echo "  </div>\n"; 
+                        echo "  <div class=\"media-body\">\n"; 
+                        echo "    <h4 class=\"media-heading\">".$startup['name']."</h4>\n"; 
+                        echo "<p> .. </p>";
+                        echo "  </div>\n"; 
+                        echo "</div>\n";
+                        echo "</div>\n";
+                       }
+                ?>
+
         </div>
         <div class="row">
             <div class="col-md-12">
             </div>
         </div>
     </div>
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
 </body>  
 
 <script>

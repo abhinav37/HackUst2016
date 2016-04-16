@@ -5213,8 +5213,8 @@ a.thumbnail.active {
 .media-object {
   display: block;
 }
-.media-object.img-thumbnail {
-  max-width: none;
+.media-object .img-thumbnail {
+  max-width: 64px;
 }
 .media-right,
 .media > .pull-right {
