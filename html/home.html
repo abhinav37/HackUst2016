@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if(isset($_SESSION["username"]))
+if(isset($_SESSION['username']))
 {
     $username = $_SESSION["username"]
-    header('location:home.php');
+    echo $_SESSION['username'];
 }
 
 ?>
@@ -36,7 +36,7 @@ if(isset($_SESSION["username"]))
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
         <li><a href="#">Company Profiles</a></li>
-        <li><a href="#">About Us</a></li>
+        <li><a href="#">About Us <? print $username ?></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -51,7 +51,7 @@ if(isset($_SESSION["username"]))
           </div>
           </form>
         </li>
-        <li><a href="#" ><?php echo $username;></a></li>
+        <li><a href="#" > <?php echo $username;> </a></li>
       </ul>
     </div>
   </div>

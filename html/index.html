@@ -138,7 +138,7 @@ if(isset($_SESSION["username"]))
 console.log("Hello from the other side");
 $(document).ready(function(){
 	$("#loginForm").submit(function(e) {
-		var url = "login.php"; // the script where you handle the form input.
+		var url = "index.php"; // the script where you handle the form input.
 		$.ajax({
 			   type: "POST",
 			   url: url,
