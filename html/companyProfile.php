@@ -84,18 +84,17 @@ include_once 'dbconnect.php';
                     echo "<th>Bullshit</th>\n"; 
                     echo "</tr>\n"; 
                     echo "</thead>\n";
-                    $query = "select count(`startupID`) from `startup`";
+                    $query = "select * from `startup`";
                     $res = mysqli_query($conn, $query);
                     $count = mysqli_num_rows($res);
-                    for($x = 1; $x <= $count+1; $x++){
-                        //add query to find max
+                    for($x = 1; $x <= $count; $x++){
                         $number = $x;
                         $query = "select * from `startup` WHERE `startupID` = \"$number\"";
                         $result= mysqli_query($conn, $query) or die ('Failed to query');
                         $startup= mysqli_fetch_array($result); 
                         echo "<tbody class=\"text-left\">\n"; 
                         echo "<tr class=\"companyTile\">\n"; 
-                        echo "<td> <img class=\"img-thumbnail\" src=\"../Images/".$startup['logo']."\"><span>".$startup['name']."</span></td>\n"; 
+                        echo "<td> <img class=\"img-thumbnail\" src=\"../Images/".$startup['logo']."\" alt><span>".$startup['name']."</span></td>\n"; 
                         echo "<td>".$startup['about']."</td>\n"; 
                         echo "<td>".$startup['activeUsers']."</td>\n";
 			            echo "<input id=\"startupID\" type=\"hidden\" value=".$x.">"; 

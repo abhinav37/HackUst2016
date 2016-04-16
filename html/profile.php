@@ -156,7 +156,7 @@ session_start();
                     <div class="row">
                         <div class="col-md-12">
 							<?php
-                                echo '<img src="' .$row['logo'] .'" />';                              
+                                echo "<img class=\"imageLogo\" src=\"../Images/".$row['logo']."\" alt>";                              
                             ?>
                         </div>
                     </div>
@@ -176,9 +176,26 @@ session_start();
                     </div>
                     <div class="row">
                        <div class="col-md-12 col-sd-12">
-                            <div class="col-sd-6 col-md-6 text-left">Stat 1</div>
-                            <div class="col-sd-6 col-md-6 text-right">Stat 2</div>
-                       </div>
+                            <div class="col-sd-6 col-md-6 text-left">Current Odds: 
+                                <?php
+                                    echo $row['annualProfit'];                              
+                                ?>
+                            </div>
+                            <div class="col-sd-6 col-md-6 text-left">Evaluation: 
+                                <?php
+                                    echo $row['evaluation'];                              
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <?php 
+                                echo "<h4>";
+                                echo $row['about'];
+                                echo "</h4>";
+                            ?>
+                        </div>               
                     </div>
                 </div>
             </div>
@@ -196,19 +213,19 @@ session_start();
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
 						<?php 
-                                echo '<img src="' . $row['image1'] .'" />';
+                                echo '<img src="../Images/' . $row['image1'] .'" />';
                         ?>
                         </div>
 
                         <div class="item">
 							<?php 
-								echo '<img src="' . $row['image2'] .'" />';
+								echo '<img src="../Images/' . $row['image2'] .'" />';
 							?>	
                         </div>
 
                         <div class="item">
 							<?php 
-								echo '<img src="' . $row['image3'] .'" />';
+								echo '<img src="../Images/' . $row['image3'] .'" />';
 							?>
                         </div>
                     </div>
@@ -224,15 +241,6 @@ session_start();
                     </a>
                     </div>
 
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-					<?php 
-						echo "<h4>";
-						  echo $row['about'];
-						echo "</h4>";
-					?>
-                </div>               
             </div>
         </div>
         <!--News Div-->

@@ -121,3 +121,16 @@ footer {
 {
     text-transform:none;
 }
+
+.imageLogo
+{
+    width:100%;
+}
+
+.tickerName{
+}
+
+.tickerValue
+{
+    color:yellow;
+}
