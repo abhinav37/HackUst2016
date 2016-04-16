@@ -95,7 +95,7 @@ include_once 'dbconnect.php';
                         $startup= mysqli_fetch_array($result); 
                         echo "<tbody class=\"text-left\">\n"; 
                         echo "<tr class=\"companyTile\">\n"; 
-                        echo "<td> <img class=\"img-thumbnail\" src=\"../Images/".$startup['logo']."\">".$startup['name']."</td>\n"; 
+                        echo "<td> <img class=\"img-thumbnail\" src=\"../Images/".$startup['logo']."\"><span>".$startup['name']."</span></td>\n"; 
                         echo "<td>".$startup['about']."</td>\n"; 
                         echo "<td>".$startup['activeUsers']."</td>\n";
 			            echo "<input id=\"startupID\" type=\"hidden\" value=".$x.">"; 
@@ -117,7 +117,7 @@ include_once 'dbconnect.php';
 
             $row = $(this);
 
-            var id = $row.find("td:first").text();
+            var id = $row.find("span").text();
 
             if (id.indexOf(value) !== 0) {
                 $row.hide();

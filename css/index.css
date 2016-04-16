@@ -2,6 +2,7 @@
 html, body
 {
     font-family: roboto;
+    text-transform: uppercase;
 }
 .loginmodal-container {
   padding: 30px;
@@ -115,4 +116,8 @@ footer {
 }
 .img-thumbnail {
   max-width: 64px;
+}
+.navbar-brand
+{
+    text-transform:none;
 }
