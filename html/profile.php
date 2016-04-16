@@ -151,38 +151,40 @@ include_once 'dbconnect.php';
                     </div>
                 </div>
                 <div class="col-md-8 text-center">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <?php
-								echo "<h2>". $row['name'] . "</h2>";
-                            ?>
-                         </div>
-                    </div>
-                    <div class="row">
-                       <div class="col-md-12 col-sd-12">
-                            <div class="col-sd-6 col-md-6 text-left">Current Odds: 
+                    <div class="col-md-12 col-sd-12">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <?php
+                                    echo "<h2>". $row['name'] . "</h2>";
+                                ?>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                       
+                            <div class="col-xs-6 col-md-6 text-left">Current Odds: 
                                 <?php
                                     echo $row['annualProfit'];                              
                                 ?>
                             </div>
-                            <div class="col-sd-6 col-md-6 text-left">Evaluation: 
+                            <div class="col-xs-6 col-md-6 text-left">Evaluation: 
                                 <?php
                                     echo $row['evaluation'];                              
                                 ?>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <?php 
-                                echo "<h4>";
-                                echo $row['about'];
-                                echo "</h4>";
-                            ?>
-                        </div>               
-                    </div>
+                        <div class="row text-left">
+                            <div class="col-md-12">
+                                <?php 
+                                    echo "<h4>";
+                                    echo $row['about'];
+                                    echo "</h4>";
+                                ?>
+                            </div>               
+                        </div>
+                   </div>
                 </div>
             </div>
+            <!--carosell-->
             <div class="row">
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
