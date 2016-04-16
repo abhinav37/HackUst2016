@@ -1,10 +1,5 @@
 <?php
-if(!mysql_connect("localhost","root",""))
-{
-     die('oops connection problem ! --> '.mysql_error());
-}
-if(!mysql_select_db("hackust"))
-{
-     die('oops database selection problem ! --> '.mysql_error());
-}
+
+	$conn=mysqli_connect('localhost','root','') or die ('Failed to Connect '.mysqli_error($conn));
+	mysqli_select_db($conn,'hackust') or die ('Failed to Access DB'.mysqli_error($conn));
 ?>

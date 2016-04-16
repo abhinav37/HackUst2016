@@ -2,10 +2,11 @@
 session_start();
 include_once 'dbconnect.php';
 
-if(!isset($_SESSION['user']))
+if(!isset($_SESSION['userID']))
 {
- header("Location: index.php");
+ header("Location: index.html");
+}else{
+	header("Location: home.html");
 }
-$res=mysql_query("SELECT * FROM user WHERE userID=".$_SESSION['user']);
-$userRow=mysql_fetch_array($res);
+
 ?>
