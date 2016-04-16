@@ -10,8 +10,8 @@ include_once 'dbconnect.php';
   
   
  $query = "UPDATE startup SET evaluation = '$evaluation', annualProfit='$profit',activeUsers='$activeUsers', about='$description' WHERE startupID = 1" ;
- 	$fileName = $_FILES['fileToUpload1']['name'];
-	$tmpName  = $_FILES['fileToUpload1']['tmp_name'];
+ 	$fileName = $_FILES['fileToUpload11']['name'];
+	$tmpName  = $_FILES['fileToUpload11']['tmp_name'];
 	$target_file = "files/" . basename($fileName);
 	var_dump($fileName);
 	move_uploaded_file($tmpName, $target_file);

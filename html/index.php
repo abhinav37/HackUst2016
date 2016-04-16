@@ -3,12 +3,7 @@
 session_start();
 include_once 'dbconnect.php';
 
-if(isset($_SESSION['userID']))
-{
- 	header("Location: home.html");
-}else{
-	header("Location: index.php");
-}
+
 ?>
 
 <!DOCTYPE html>
