@@ -28,6 +28,8 @@ session_start();
                    success: function(data)
                    {
                        alert(data);
+                        var x = $("#startupID").val();
+                        window.location.replace("profile.php?startupID="+x);
                     }   
             });
             e.preventDefault(); // avoid to execute the actual submit of the form.
