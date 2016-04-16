@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if(isset($_SESSION["username"]))
+{
+    header('location:home.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +60,7 @@
     <div class="modal-dialog">
         <div class="loginmodal-container">
             <h1>Login to Your Account</h1><br>
-            <form role="form" class="form text-center">
+            <form id="loginForm" role="form" class="form text-center">
                 <input type="text" name="user" placeholder="Username">
                 <input type="password" name="pass" placeholder="Password">
                 <label class="radio-inline"><input type="radio" name="loginType" value="">Better</label>
@@ -122,5 +132,25 @@
   <p>Footer Text</p>
 </footer>
 </body>  
+
+<script>
+console.log("Hello from the other side");
+$(document).ready(function(){
+	$("#loginForm").submit(function(e) {
+		var url = "index.php"; // the script where you handle the form input.
+		$.ajax({
+			   type: "POST",
+			   url: url,
+			   data: $("#loginForm").serialize(), // serializes the form's elements.
+			   success: function(data)
+			   {
+				   alert(data);
+           window.location.replace("home.php");
+    	   }
+			 });
+		e.preventDefault(); // avoid to execute the actual submit of the form.
+	});
+});
+</script>
     
 </html>
