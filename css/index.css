@@ -96,6 +96,9 @@ html, body
 .login-help{
   font-size: 12px;
 }
+.about{
+  padding: 3px;
+}
 
 footer {
     background-color: #f2f2f2;
