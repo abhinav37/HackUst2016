@@ -89,7 +89,7 @@ include_once 'dbconnect.php';
             echo "<p>";
             while($startup = mysqli_fetch_row($result)) {
                 //var_dump($startup);
-                echo $startup[1] .": " . $startup[7] . " ";
+                echo "<span class=\"tickerName\">" . $startup[1] .": </span><span class=\"tickerValue\">" . $startup[7] . " </span> &nbsp; &nbsp ";
             }
             echo "</p>";
         ?>           

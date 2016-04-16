@@ -140,7 +140,7 @@ include_once 'dbconnect.php';
                     <div class="row">
                         <div class="col-md-12">
 							<?php
-                                echo '<img src="' .$row['logo'] .'" />';                              
+                                echo "<img class=\"imageLogo\" src=\"../Images/".$row['logo']."\" alt>";                              
                             ?>
                         </div>
                     </div>
@@ -160,9 +160,26 @@ include_once 'dbconnect.php';
                     </div>
                     <div class="row">
                        <div class="col-md-12 col-sd-12">
-                            <div class="col-sd-6 col-md-6 text-left">Stat 1</div>
-                            <div class="col-sd-6 col-md-6 text-right">Stat 2</div>
-                       </div>
+                            <div class="col-sd-6 col-md-6 text-left">Current Odds: 
+                                <?php
+                                    echo $row['annualProfit'];                              
+                                ?>
+                            </div>
+                            <div class="col-sd-6 col-md-6 text-left">Evaluation: 
+                                <?php
+                                    echo $row['evaluation'];                              
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <?php 
+                                echo "<h4>";
+                                echo $row['about'];
+                                echo "</h4>";
+                            ?>
+                        </div>               
                     </div>
                 </div>
             </div>
@@ -208,15 +225,6 @@ include_once 'dbconnect.php';
                     </a>
                     </div>
 
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-					<?php 
-						echo "<h4>";
-						  echo $row['about'];
-						echo "</h4>";
-					?>
-                </div>               
             </div>
         </div>
         <!--News Div-->

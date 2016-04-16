@@ -166,6 +166,7 @@ include_once 'dbconnect.php';
         
         <div class="row well">
                <?php
+                    $query = "select * from `startup`";
                     $res = mysqli_query($conn, $query);
                     $count = mysqli_num_rows($res);
                     $unique = [];
