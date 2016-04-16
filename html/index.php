@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once "dbconnect.php";
 if(isset($_SESSION['userID']))
     header("Location: home.php");
 ?>
@@ -59,8 +60,8 @@ if(isset($_SESSION['userID']))
             <form id="loginForm" role="form" class="form text-center">
                 <input type="text" name="user" placeholder="Username">
                 <input type="password" name="pass" placeholder="Password">
-                <label class="radio-inline"><input type="radio" name="loginType" value="">Better</label>
-                <label class="radio-inline"><input type="radio" name="loginType" value="">Start-Up</label>
+                <label class="radio-inline"><input type="radio" name="loginType" value="1">Better</label>
+                <label class="radio-inline"><input type="radio" name="loginType" value="2">Start-Up</label>
                 <input type="submit" name="login" class="login loginmodal-submit" value="Login">            
             </form>
             <div class="login-help">
