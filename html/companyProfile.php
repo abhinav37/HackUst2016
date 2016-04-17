@@ -60,7 +60,7 @@
             echo "<p>";
             while($startup = mysqli_fetch_row($result)) {
                 //var_dump($startup);
-                echo "<span class=\"tickerName\">" . $startup[1] .": </span><span class=\"tickerValue\">" . $startup[7] . " </span> &nbsp; &nbsp ";
+                echo "<span class=\"tickerName\">" . $startup[1] .": </span><span class=\"tickerValue\">" . $startup[10] . " </span> &nbsp; &nbsp ";
             }
             echo "</p>";
         ?>           
@@ -98,7 +98,7 @@
                     echo "<tr>\n"; 
                     echo "<th>Company Name</th>\n"; 
                     echo "<th>Information</th>\n"; 
-                    echo "<th>Bullshit</th>\n"; 
+                    echo "<th>Odds</th>\n"; 
                     echo "</tr>\n"; 
                     echo "</thead>\n";
                     $query = "select * from `startup`";
@@ -175,6 +175,17 @@
 console.log("Hello from the other side");
 
 $(document).ready(function(){
+    var url = "algo.php"; // the script where you handle the form input.
+        $.ajax({
+               url: url,
+               success: function(data)
+               {
+                    console.log(data);
+                }
+        });
+
+
+
 	$("#registerForm").hide();
 	$("#signupForm").show();
 	
@@ -189,7 +200,6 @@ $(document).ready(function(){
 		}
     }); 
     $("#loginForm").submit(function(e) {
-        var url = "login.php"; // the script where you handle the form input.
 		var url = "login.php"; // the script where you handle the form input.
 		$.ajax({
 			   type: "POST",
