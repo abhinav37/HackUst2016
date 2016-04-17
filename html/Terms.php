@@ -30,7 +30,7 @@
       <ul class="nav navbar-nav">
         <li><a href="index.php">Home</a></li>
         <li><a href="companyProfile.php">Company Profiles</a></li>
-        <li class="active"><a href="AboutUs.php">About Us</a></li>
+        <li><a href="AboutUs.php">About Us</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -116,13 +116,13 @@
         <div class="about">
             <div class="row">
                 <div class="col-md-12">
-                        <div class="col-md-6">
-                            <h1>About Us</h1>
-                           <h3> As Students of <strong>The University of Hong Kong</strong>, studying Computer Science, we were throughly engaged in working at our first ever Hackathon! Cheers to HKUST and the hackUST Team ! </h3>
-                         </div>
-                        <div class="col-md-6">
-                            <img src="../css/images/about.jpg" class="img-rounded" alt="Cinque Terre" width="400" height="400">
-                        </div>
+                    <h4>
+                    <ul style="line-style:none;">
+                            <li>Terms and condition</li>
+                                <li>All images and names are used using fair use policy</li>
+                                <li>This is a Work in progress and is not to be published or used in any way to make revenue or for any illicit use</li>
+                        <ul>
+                            <h4>
                 </div>
             </div>
         </div>
