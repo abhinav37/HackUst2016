@@ -104,7 +104,7 @@
             echo "<p>";
             while($startup = mysqli_fetch_row($result)) {
                 //var_dump($startup);
-                echo "<span class=\"tickerName\">" . $startup[1] .": </span><span class=\"tickerValue\">" . $startup[7] . " </span> &nbsp; &nbsp ";
+                echo "<span class=\"tickerName\">" . $startup[1] .": </span><span class=\"tickerValue\">" . $startup[10] . " </span> &nbsp; &nbsp ";
             }
             echo "</p>";
         ?>           

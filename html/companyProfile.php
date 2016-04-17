@@ -60,7 +60,7 @@
             echo "<p>";
             while($startup = mysqli_fetch_row($result)) {
                 //var_dump($startup);
-                echo "<span class=\"tickerName\">" . $startup[1] .": </span><span class=\"tickerValue\">" . $startup[7] . " </span> &nbsp; &nbsp ";
+                echo "<span class=\"tickerName\">" . $startup[1] .": </span><span class=\"tickerValue\">" . $startup[10] . " </span> &nbsp; &nbsp ";
             }
             echo "</p>";
         ?>           
@@ -98,7 +98,7 @@
                     echo "<tr>\n"; 
                     echo "<th>Company Name</th>\n"; 
                     echo "<th>Information</th>\n"; 
-                    echo "<th>Bullshit</th>\n"; 
+                    echo "<th>Odds</th>\n"; 
                     echo "</tr>\n"; 
                     echo "</thead>\n";
                     $query = "select * from `startup`";
