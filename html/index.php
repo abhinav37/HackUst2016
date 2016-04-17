@@ -175,7 +175,7 @@ if(isset($_SESSION['userID']))
                                 <th>Value of Bets</th>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody>                          
                             <tr>
                                 <td>John</td>
                                 <td>Doe</td>
@@ -247,10 +247,6 @@ if(isset($_SESSION['userID']))
 
 <script>
 console.log("Hello from the other side");
-<<<<<<< HEAD
-$(document).ready(function(){   
-	$("#loginForm").submit(function(e) {
-=======
 $(document).ready(function(){
 	$("#registerForm").hide();
 	$("#signupForm").show();
@@ -268,8 +264,7 @@ $(document).ready(function(){
 
 
     $("#loginForm").submit(function(e) {
->>>>>>> b17f43429f5f97fec27fae54a992c46f6d0eff41
-		var url = "login.php"; // the script where you handle the form input.
+        var url = "login.php"; // the script where you handle the form input.
 		$.ajax({
 			   type: "POST",
 			   url: url,

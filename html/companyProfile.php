@@ -113,7 +113,7 @@
                         echo "<tr class=\"companyTile\">\n"; 
                         echo "<td> <img class=\"img-thumbnail\" src=\"../Images/".$startup['logo']."\" alt><span>".$startup['name']."</span></td>\n"; 
                         echo "<td>".$startup['about']."</td>\n"; 
-                        echo "<td id=\"odds\"></td>\n";
+                        echo "<td class=\"odds\" id=\"".$x."\">test". $x . "</td>\n";
 			            echo "<input id=\"startupID\" type=\"hidden\" value=".$x.">"; 
                         echo "</tr>\n"; 
                        }
@@ -126,7 +126,10 @@
 </body>  
 <!--Script for Table-->
 <script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> fd05f8177cd60f65662c9c98ba01eddb454658b4
         function getOdds(startupID) {
         var url = "getOdds.php"; // the script where you handle the form input.
         $.ajax({
@@ -136,7 +139,9 @@
 			   success: function(data)
 			   {
                    console.log(data);
-			        $('table tr').find($("#odds")).html(data);
+                   console.log(startupID);
+			       var test = $('#' + startupID);
+                   test.html(data);
     	       }
 		});
     }
@@ -149,7 +154,10 @@
         });
     });
     
+<<<<<<< HEAD
 
+=======
+>>>>>>> fd05f8177cd60f65662c9c98ba01eddb454658b4
     $("#search").on("keyup", function() {
     var value = $(this).val();
     $("table tr ").each(function(index) {
