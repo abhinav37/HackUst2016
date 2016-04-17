@@ -24,6 +24,12 @@
 	$query = "select * from `startup` WHERE `startupID` = \"$startupID\" ";
     $res = mysqli_query($conn, $query);
 	$row=mysqli_fetch_array($res);
-	$newOdd = ($row['odds'])/(1.05*$percentDiff);
+    if($percentDiff){
+	    $newOdd = ($row['odds'])/(1.05*$percentDiff);
+    }else 
+        $newOdd = 1;
+    
+    $query = "UPDATE `startup` SET `odds` = \"newOdd\" WHERE `startupID` = \"$startupID\" ";
+    $res = mysqli_query($conn, $query) or die ('Failed to query');
 	echo $newOdd;
 ?>
