@@ -163,7 +163,6 @@ if(isset($_SESSION['userID']))
 								 <th>StartUp Name</th>
                                 <th>Number of Bets</th>
                                 <th>Value of Bets</th>
-<<<<<<< HEAD
                             </tr>
                             </thead>
                             <tbody>                          
@@ -182,7 +181,6 @@ if(isset($_SESSION['userID']))
                                 <td>Dooley</td>
                                 <td>july@example.com</td>
                             </tr>
-=======
                                 </thead>
                                 <tbody>
 								<?php
@@ -199,8 +197,6 @@ if(isset($_SESSION['userID']))
 									echo "<tr><td>".$startupBet['name']."</td><td>".$row['count']."</td><td>".$row['sumOf']."</td></tr>";
 									}
 								?>
-
->>>>>>> kanakk
                             </tbody>
                          </table>
                     </div>
