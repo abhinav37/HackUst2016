@@ -55,7 +55,7 @@ else{
                 echo "<li class=\"dropdown\">\n"; 
                 echo "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">". $username ."<span class=\"caret\"></span></a>\n"; 
                 echo "<ul class=\"dropdown-menu\">\n"; 
-                echo "<li><a href=\"#\">Portfolio</a></li>\n"; 
+                echo "<li><a href=\"userConsole.php\">Portfolio</a></li>\n"; 
                 echo "<li role=\"separator\" class=\"divider\"></li>\n"; 
                 echo "<li><a href=\"userConsole.php\">Profile</a></li>\n"; 
                 echo "<li><a href=\"logout.php\">Logout</a></li>\n"; 
