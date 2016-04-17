@@ -175,6 +175,17 @@
 console.log("Hello from the other side");
 
 $(document).ready(function(){
+    var url = "algo.php"; // the script where you handle the form input.
+        $.ajax({
+               url: url,
+               success: function(data)
+               {
+                    console.log(data);
+                }
+        });
+
+
+
 	$("#registerForm").hide();
 	$("#signupForm").show();
 	
@@ -189,7 +200,6 @@ $(document).ready(function(){
 		}
     }); 
     $("#loginForm").submit(function(e) {
-        var url = "login.php"; // the script where you handle the form input.
 		var url = "login.php"; // the script where you handle the form input.
 		$.ajax({
 			   type: "POST",
