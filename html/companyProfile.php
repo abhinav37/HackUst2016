@@ -113,7 +113,7 @@
                         echo "<tr class=\"companyTile\">\n"; 
                         echo "<td> <img class=\"img-thumbnail\" src=\"../Images/".$startup['logo']."\" alt><span>".$startup['name']."</span></td>\n"; 
                         echo "<td>".$startup['about']."</td>\n"; 
-                        echo "<td id=\"odds\"></td>\n";
+                        echo "<td class=\"odds\" id=\"".$x."\">test". $x . "</td>\n";
 			            echo "<input id=\"startupID\" type=\"hidden\" value=".$x.">"; 
                         echo "</tr>\n"; 
                        }
@@ -135,7 +135,9 @@
 			   success: function(data)
 			   {
                    console.log(data);
-			        $('table tr').find($("#odds")).html(data);
+                   console.log(startupID);
+			       var test = $('#' + startupID);
+                   test.html(data);
     	       }
 		});
     }
