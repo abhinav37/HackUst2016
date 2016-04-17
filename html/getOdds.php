@@ -19,7 +19,8 @@
     $res = mysqli_query($conn, $query);
     $betsOnCompanies = mysqli_num_rows($res);
     //calculate percentage difference
-    $percentDiff = 1 + ( ($betsOnCompanies - $averageBets) / $averageBets ) ;         
+    
+        $percentDiff = 1 + ( ($betsOnCompanies - $averageBets) / $averageBets ) ;         
 	//get original odd on company
 	$query = "select * from `startup` WHERE `startupID` = \"$startupID\" ";
     $res = mysqli_query($conn, $query);
@@ -29,7 +30,7 @@
     }else 
         $newOdd = 1;
     
-    $query = "UPDATE `startup` SET `odds` = \"newOdd\" WHERE `startupID` = \"$startupID\" ";
+   // $query = "UPDATE `startup` SET `odds` = \"$newOdd\" WHERE `startupID` = \"$startupID\" ";
     $res = mysqli_query($conn, $query) or die ('Failed to query');
 	echo $newOdd;
 ?>
