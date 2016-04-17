@@ -58,13 +58,13 @@ if(isset($_SESSION['userID']))
 <!--Login Box-->
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
-        <div class="loginmodal-container">
+        <div id="loginDiv" class="loginmodal-container">
             <h1>Login to Your Account</h1><br>
             <form id="loginForm" role="form" class="form text-center">
                 <input type="text" name="user" placeholder="Username">
                 <input type="password" name="pass" placeholder="Password">
-                <label class="radio-inline"><input type="radio" name="loginType" value="1">Bettor</label>
-                <label class="radio-inline"><input type="radio" name="loginType" value="2">Start-Up</label>
+                <label class="radio-inline"><input type="radio" name="loginType" value="bettor">Bettor</label>
+                <label class="radio-inline"><input type="radio" name="loginType" value="startup">Start-Up</label>
                 <input type="submit" name="login" class="login loginmodal-submit" value="Login">            
             </form>
             <div class="login-help">
@@ -76,11 +76,11 @@ if(isset($_SESSION['userID']))
  <!--Registration-->
  <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
-        <div class="loginmodal-container">
+        <div id="regDiv" class="loginmodal-container">
             <h1>Register Account</h1><br>
+            <label class="radio-inline"><input checked="checked" type="radio" name="registerType" value="bettor">Bettor</label>
+            <label class="radio-inline"><input type="radio" name="registerType" value="startup">Start-Up</label>
             <form id="registerForm">
-            <label class="radio-inline"><input type="radio" name="registerType" value="registerType1">Bettor</label>
-            <label class="radio-inline"><input type="radio" name="registerType" value="registerType2">Start-Up</label>
             <input type="text" name="fName" placeholder="First Name" required>
             <input type="text" name="lName" placeholder="Last Name" required>
             <input type="text" name="user" placeholder="Username" required>
@@ -248,8 +248,19 @@ if(isset($_SESSION['userID']))
 <script>
 console.log("Hello from the other side");
 $(document).ready(function(){
+	$("#registerForm").hide();
+	$("#signupForm").show();
 	
-    $("input[name$='registerType']").click(function(){var test = $(this).var});
+    $("input[name$='registerType']").click(function() {
+        var test = $(this).val();
+        if(test=="bettor"){
+			$("#registerForm").hide();
+			$("#signupForm").show();
+		}else{
+			$("#registerForm").show();
+			$("#signupForm").hide();
+		}
+    }); 
 
 
     $("#loginForm").submit(function(e) {
