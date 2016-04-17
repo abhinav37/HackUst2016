@@ -41,7 +41,7 @@
                 echo "<ul class=\"dropdown-menu\">\n"; 
                 echo "<li><a href=\"#\">Portfolio</a></li>\n"; 
                 echo "<li role=\"separator\" class=\"divider\"></li>\n"; 
-                echo "<li><a href=\"#\">Profile</a></li>\n"; 
+                echo "<li><a href=\"userConsole.php\">Profile</a></li>\n"; 
                 echo "<li><a href=\"logout.php\">Logout</a></li>\n"; 
                 echo "</ul>\n"; 
                 echo "</li>\n";
@@ -126,13 +126,6 @@
 </body>  
 <!--Script for Table-->
 <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> fd05f8177cd60f65662c9c98ba01eddb454658b4
-=======
->>>>>>> kanakk
         function getOdds(startupID) {
         var url = "getOdds.php"; // the script where you handle the form input.
         $.ajax({
@@ -156,15 +149,7 @@
                 getOdds($startupID.val());  
         });
     });
-<<<<<<< HEAD
-    
-<<<<<<< HEAD
 
-=======
->>>>>>> fd05f8177cd60f65662c9c98ba01eddb454658b4
-=======
-
->>>>>>> kanakk
     $("#search").on("keyup", function() {
     var value = $(this).val();
     $("table tr ").each(function(index) {

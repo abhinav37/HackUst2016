@@ -20,6 +20,8 @@
   <script type="text/javascript" src="Chart.js"></script>
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <link rel="stylesheet" href="../css/index.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.1.1/Chart.js"></script>
+
 <script>
     $(document).ready(function(){
         console.log("hello");
@@ -78,7 +80,7 @@
                 echo "<ul class=\"dropdown-menu\">\n"; 
                 echo "<li><a href=\"#\">Portfolio</a></li>\n"; 
                 echo "<li role=\"separator\" class=\"divider\"></li>\n"; 
-                echo "<li><a href=\"#\">Profile</a></li>\n"; 
+                echo "<li><a href=\"userConsole.php\">Profile</a></li>\n"; 
                 echo "<li><a href=\"logout.php\">Logout</a></li>\n"; 
                 echo "</ul>\n"; 
                 echo "</li>\n";

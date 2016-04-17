@@ -1,15 +1,8 @@
 <?php
 session_start();
 include_once 'dbconnect.php';
-
-if(!isset($_SESSION['userID']))
-{
-    header("Location: userConsole.php");
-}
-else{
-	header("Location: home.html");
-}
-
+$userID = $_SESSION['userID'];
+$username = $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +25,7 @@ else{
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">BetNvest</a>
+      <a class="navbar-brand" href="index.php">BetNvest</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -53,8 +46,21 @@ else{
           </div>
           </form>
         </li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>0.
+       <?php
+            if(isset($_SESSION['userID'])){
+                echo "<li class=\"dropdown\">\n"; 
+                echo "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">". $username ."<span class=\"caret\"></span></a>\n"; 
+                echo "<ul class=\"dropdown-menu\">\n"; 
+                echo "<li><a href=\"#\">Portfolio</a></li>\n"; 
+                echo "<li role=\"separator\" class=\"divider\"></li>\n"; 
+                echo "<li><a href=\"userConsole.php\">Profile</a></li>\n"; 
+                echo "<li><a href=\"logout.php\">Logout</a></li>\n"; 
+                echo "</ul>\n"; 
+                echo "</li>\n";
+            }else
+                echo "<li><a href=\"#\" data-toggle=\"modal\" data-target=\"#login-modal\"><span class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>\n"; 
+        ?>
+      </ul>
     </div>
   </div>
 </nav><div class="container-fluid" id="ticker">
@@ -84,31 +90,29 @@ else{
             <div class="row">
                 <div class="col-md-12 text-center">
                       <table class="table table-bordered table-striped">
-                        <thead>
-                        <tr>
-                            <th>Firstname</th>
-                            <th>Lastname</th>
-                            <th>Email</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>john@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>Mary</td>
-                            <td>Moe</td>
-                            <td>mary@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>July</td>
-                            <td>Dooley</td>
-                            <td>july@example.com</td>
-                        </tr>
-                        </tbody>
-                    </table>
+                            <thead>
+                 <th>StartUp Name</th>
+                                <th>About the Company</th>
+                                <th>Your Odds</th>
+                            </tr>
+                            </thead>
+                            <tbody>                          
+     
+                                </thead>
+                                <tbody>
+                <?php
+                  $query = "SELECT startupID FROM bets WHERE userID = '$userID'";
+                  $result = mysqli_query($conn, $query);
+                  while($row =  mysqli_fetch_assoc($result)) {
+                    $startID = $row['startupID'];
+                    $qu = "select * from `startup` WHERE `startupID` = \"$startID\"";
+                    $re= mysqli_query($conn, $qu) or die ('Failed to query');
+                    $startupBet= mysqli_fetch_array($re);                   
+                    echo "<tr><td>".$startupBet['name']."</td><td>".$startupBet['about']."</td><td>".$startupBet['odds']."</td></tr>";
+                  }
+                ?>
+                            </tbody>
+                         </table>
                 </div>
             </div>
         </div>
@@ -116,9 +120,7 @@ else{
 
 
 </div>
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
+
 </body>  
     
 </html>
