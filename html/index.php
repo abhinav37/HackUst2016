@@ -235,6 +235,10 @@ if(isset($_SESSION['userID']))
             </div>
         </div>
     </div>
+    <footer>
+        <h3><a href="Terms.php">Terms and Conditons</a></h3>
+        </footer>
+        
 </body>  
 
 <script>
