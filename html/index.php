@@ -77,20 +77,23 @@ if(isset($_SESSION['userID']))
             <h1>Register Account</h1><br>
             <label class="radio-inline"><input checked="checked" type="radio" name="registerType" value="bettor">Bettor</label>
             <label class="radio-inline"><input type="radio" name="registerType" value="startup">Start-Up</label>
-            <form id="registerForm">
-            <input type="text" name="fName" placeholder="First Name" required>
-            <input type="text" name="lName" placeholder="Last Name" required>
-            <input type="text" name="user" placeholder="Username" required>
-            <input type="password" name="pass" placeholder="Password" required>
-            <input type="submit" name="login" class="login loginmodal-submit" value="Register">
-            </form> 
             <form id="signupForm">
             <input type="text" name="name" placeholder="Company Name" required>
             <input type="text" name="about" placeholder="About" required>
             <input type="text" name="evaluation" placeholder="Evaluation" required>
             <input type="text" name="annualProfit" placeholder="Annual Profit" required>
             <input type="text" name="activeUsers" placeholder="Estimated active users" required>
+            <input type="text" name="user" placeholder="Username" required>
+            <input type="password" name="pass" placeholder="Password" required>
 
+            <input type="submit" name="login" class="login loginmodal-submit" value="Register">
+            </form> 
+
+            <form id="registerForm">
+            <input type="text" name="fName" placeholder="First Name" required>
+            <input type="text" name="lName" placeholder="Last Name" required>
+            <input type="text" name="user" placeholder="Username" required>
+            <input type="password" name="pass" placeholder="Password" required>
             <input type="submit" name="login" class="login loginmodal-submit" value="Register">
             </form> 
 
@@ -243,7 +246,7 @@ $(document).ready(function(){
 	
     $("input[name$='registerType']").click(function() {
         var test = $(this).val();
-        if(test=="bettor"){
+        if(test!="bettor"){
 			$("#registerForm").hide();
 			$("#signupForm").show();
 		}else{
@@ -280,7 +283,21 @@ $(document).ready(function(){
          }
        });
     e.preventDefault(); // avoid to execute the actual submit of the form.
-  });
+    });
+    $("#signupForm").submit(function(e) {
+    var url = "register2.php"; // the script where you handle the form input.
+    $.ajax({
+         type: "POST",
+         url: url,
+         data: $("#signupForm").serialize(), // serializes the form's elements.
+         success: function(data)
+         {
+           alert(data);
+           window.location.replace("redirect.php");
+         }
+       });
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+    });    
 });
 
 $(".companyTile").on("click", function() {

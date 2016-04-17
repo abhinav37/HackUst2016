@@ -170,4 +170,57 @@
 		window.location.replace("profile.php?startupID="+x);
 	});
         </script>
+        <script>
+    
+console.log("Hello from the other side");
+
+$(document).ready(function(){
+	$("#registerForm").hide();
+	$("#signupForm").show();
+	
+    $("input[name$='registerType']").click(function() {
+        var test = $(this).val();
+        if(test=="bettor"){
+			$("#registerForm").hide();
+			$("#signupForm").show();
+		}else{
+			$("#registerForm").show();
+			$("#signupForm").hide();
+		}
+    }); 
+    $("#loginForm").submit(function(e) {
+        var url = "login.php"; // the script where you handle the form input.
+		var url = "login.php"; // the script where you handle the form input.
+		$.ajax({
+			   type: "POST",
+			   url: url,
+			   data: $("#loginForm").serialize(), // serializes the form's elements.
+			   success: function(data)
+			   {
+				   alert(data);     
+                    window.location.replace("home.php");
+    	        }
+		});
+		e.preventDefault(); // avoid to execute the actual submit of the form.
+	});
+
+    $("#registerForm").submit(function(e) {
+    var url = "register.php"; // the script where you handle the form input.
+    $.ajax({
+         type: "POST",
+         url: url,
+         data: $("#registerForm").serialize(), // serializes the form's elements.
+         success: function(data)
+         {
+           alert(data);
+           window.location.replace("redirect.php");
+         }
+       });
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+  });
+});
+</script>
+
+        
+        
 </html>

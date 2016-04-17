@@ -123,7 +123,7 @@ else{
                 <?php
                   $query = "SELECT startupID, COUNT(*) as count, SUM(amount) as sumOf FROM bets GROUP BY startupID ORDER BY count DESC";
                   $result = mysqli_query($conn, $query);
-                  for($x = 0; $x <= 5; $x++){
+                  for($x = 0; $x < 5; $x++){
                     $row= mysqli_fetch_assoc($result);
                     
                     $startID = $row['startupID'];
