@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.1.1/Chart.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <link rel="stylesheet" href="../css/index.css">
 <script>
     $(document).ready(function(){
@@ -70,9 +72,17 @@
           </form>
         </li>
         <?php
-            if(isset($_SESSION['userID']))
-                echo "<li><a href=\"#\">". $username . "</a></li>";
-            else
+            if(isset($_SESSION['userID'])){
+                echo "<li class=\"dropdown\">\n"; 
+                echo "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">". $username ."<span class=\"caret\"></span></a>\n"; 
+                echo "<ul class=\"dropdown-menu\">\n"; 
+                echo "<li><a href=\"#\">Portfolio</a></li>\n"; 
+                echo "<li role=\"separator\" class=\"divider\"></li>\n"; 
+                echo "<li><a href=\"#\">Profile</a></li>\n"; 
+                echo "<li><a href=\"logout.php\">Logout</a></li>\n"; 
+                echo "</ul>\n"; 
+                echo "</li>\n";
+            }else
                 echo "<li><a href=\"#\" data-toggle=\"modal\" data-target=\"#login-modal\"><span class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>\n"; 
         ?>
       </ul>
@@ -169,7 +179,10 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <button type="button" class="btn btn-success btn-block"  data-toggle="modal" data-target="#payment-modal">Bet!</button>
+                        <?php
+                        if(isset($_SESSION['userID']))
+                            echo "<button type=\"button\" class=\"btn btn-success btn-block\"  data-toggle=\"modal\" data-target=\"#payment-modal\">Bet!</button>\n";
+                        ?>
                         </div>
                     </div>
                 </div>
@@ -255,10 +268,50 @@
         </div>
         <!--News Div-->
         <div class="col-md-4">
-           <div class="row">
+            <div class="col-md-12">
+           <div class="row"> 
+               
+           
+               
+                 <script type="text/javascript">
+
+            window.onload = function() { 
+                init();
+            };
+
+            function init() {
+                var ctx = $("#myChart").get(0).getContext("2d");
+
+                var data = {
+                    labels: ["January", "February", "March", "April", "May", "June", "July"],
+                    datasets: [
+                        {
+                            fillColor: "rgba(220,220,220,0.5)",
+                            strokeColor: "rgba(220,220,220,1)",
+                            pointColor: "rgba(220,220,220,1)",
+                            pointStrokeColor: "#fff",
+                            data: [65, 59, 90, 81, 56, 55, 40]
+                        }
+                      
+                    ]
+                }
+
+                var myNewChart = new Chart(ctx).Line(data);
+            }
+Chart.defaults.global.responsive = true;
+        </script>
+        </div>
+            <div class="row"> 
+            <section>
+                <article>
+                    <canvas id="myChart" width="400" height="400">
+                    </canvas>
+                </article>
+            </section>
+        </div>
                 <div class="col-md-12  text-center">
                     <h2>News</h2>
-                </div>
+               
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -284,6 +337,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 

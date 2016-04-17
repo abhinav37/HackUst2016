@@ -1,6 +1,9 @@
 <?php
 session_start();
-include_once 'dbconnect.php';
+
+include_once "dbconnect.php";
+
+
 if(isset($_SESSION['userID']))
     header("Location: home.php");
 ?>
@@ -55,13 +58,13 @@ if(isset($_SESSION['userID']))
 <!--Login Box-->
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
-        <div class="loginmodal-container">
+        <div id="loginDiv" class="loginmodal-container">
             <h1>Login to Your Account</h1><br>
             <form id="loginForm" role="form" class="form text-center">
                 <input type="text" name="user" placeholder="Username">
                 <input type="password" name="pass" placeholder="Password">
-                <label class="radio-inline"><input type="radio" name="loginType" value="">Better</label>
-                <label class="radio-inline"><input type="radio" name="loginType" value="">Start-Up</label>
+                <label class="radio-inline"><input type="radio" name="loginType" value="bettor">Bettor</label>
+                <label class="radio-inline"><input type="radio" name="loginType" value="startup">Start-Up</label>
                 <input type="submit" name="login" class="login loginmodal-submit" value="Login">            
             </form>
             <div class="login-help">
@@ -73,15 +76,44 @@ if(isset($_SESSION['userID']))
  <!--Registration-->
  <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
-        <div class="loginmodal-container">
+        <div id="regDiv" class="loginmodal-container">
             <h1>Register Account</h1><br>
+            <label class="radio-inline"><input checked="checked" type="radio" name="registerType" value="bettor">Bettor</label>
+            <label class="radio-inline"><input type="radio" name="registerType" value="startup">Start-Up</label>
             <form id="registerForm">
             <input type="text" name="fName" placeholder="First Name" required>
             <input type="text" name="lName" placeholder="Last Name" required>
             <input type="text" name="user" placeholder="Username" required>
             <input type="password" name="pass" placeholder="Password" required>
             <input type="submit" name="login" class="login loginmodal-submit" value="Register">
-            </form>            
+            </form> 
+            <form id="signupForm">
+            <input type="text" name="name" placeholder="Company Name" required>
+            <input type="text" name="about" placeholder="About" required>
+            <input type="text" name="evaluation" placeholder="Evaluation" required>
+            <input type="text" name="annualProfit" placeholder="Annual Profit" required>
+            <input type="text" name="activeUsers" placeholder="Estimated active users" required>
+
+            <input type="submit" name="login" class="login loginmodal-submit" value="Register">
+            </form> 
+
+        </div>
+    </div>
+ </div>
+ <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="loginmodal-container">
+            <h1>Register Account</h1><br>
+            <form id="signupForm" name="signupForm" value="signupForm">
+            <input type="text" name="name" placeholder="Company Name" required>
+            <input type="text" name="about" placeholder="About" required>
+            <input type="text" name="evaluation" placeholder="Evaluation" required>
+            <input type="text" name="annualProfit" placeholder="Annual Profit" required>
+            <input type="text" name="activeUsers" placeholder="Estimated active users" required>
+
+            <input type="submit" name="login" class="login loginmodal-submit" value="Register">
+            </form> 
+
         </div>
     </div>
  </div>
@@ -215,8 +247,28 @@ if(isset($_SESSION['userID']))
 
 <script>
 console.log("Hello from the other side");
+<<<<<<< HEAD
 $(document).ready(function(){   
 	$("#loginForm").submit(function(e) {
+=======
+$(document).ready(function(){
+	$("#registerForm").hide();
+	$("#signupForm").show();
+	
+    $("input[name$='registerType']").click(function() {
+        var test = $(this).val();
+        if(test=="bettor"){
+			$("#registerForm").hide();
+			$("#signupForm").show();
+		}else{
+			$("#registerForm").show();
+			$("#signupForm").hide();
+		}
+    }); 
+
+
+    $("#loginForm").submit(function(e) {
+>>>>>>> b17f43429f5f97fec27fae54a992c46f6d0eff41
 		var url = "login.php"; // the script where you handle the form input.
 		$.ajax({
 			   type: "POST",
