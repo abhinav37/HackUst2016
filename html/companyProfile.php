@@ -127,9 +127,12 @@
 <!--Script for Table-->
 <script>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> fd05f8177cd60f65662c9c98ba01eddb454658b4
+=======
+>>>>>>> kanakk
         function getOdds(startupID) {
         var url = "getOdds.php"; // the script where you handle the form input.
         $.ajax({
@@ -153,11 +156,15 @@
                 getOdds($startupID.val());  
         });
     });
+<<<<<<< HEAD
     
 <<<<<<< HEAD
 
 =======
 >>>>>>> fd05f8177cd60f65662c9c98ba01eddb454658b4
+=======
+
+>>>>>>> kanakk
     $("#search").on("keyup", function() {
     var value = $(this).val();
     $("table tr ").each(function(index) {

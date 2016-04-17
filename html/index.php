@@ -135,41 +135,35 @@ if(isset($_SESSION['userID']))
                 <div class="row">
                     <div class="col-sm-6">
                         <h4>Current Bets</h4>
-                        <table class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                                <th>Firstname</th>
-                                <th>Lastname</th>
-                                <th>Email</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>John</td>
-                                <td>Doe</td>
-                                <td>john@example.com</td>
-                            </tr>
-                            <tr>
-                                <td>Mary</td>
-                                <td>Moe</td>
-                                <td>mary@example.com</td>
-                            </tr>
-                            <tr>
-                                <td>July</td>
-                                <td>Dooley</td>
-                                <td>july@example.com</td>
-                            </tr>
-                            </tbody>
+                        <table class="table table-bordered table-striped">                         
+                            <tbody class="text-left">
+                                <?php
+									$query = "select * from `bets`";
+									$res = mysqli_query($conn, $query);
+									$count = mysqli_num_rows($res);
+									for($x = $count; $x >= $count-4; $x--){
+									$number = $x;
+									$query = "select * from `bets` WHERE `betID` = \"$number\"";
+									$result= mysqli_query($conn, $query) or die ('Failed to query');
+									$bet= mysqli_fetch_array($result);
+									$startID = $bet['startupID'];
+									$query = "select * from `startup` WHERE `startupID` = \"$startID\"";
+									$result= mysqli_query($conn, $query) or die ('Failed to query');
+									$startupBet= mysqli_fetch_array($result);  									
+									echo "<tr></tr><td> A $".$bet['amount']." was made on ".$startupBet['name']." Company at ".$bet['time']."</td></tr>\n";                    
+								}
+                                ?>
+							</tbody>
                         </table>
                     </div>
                     <div class="col-sm-6">
                         <h4>Hot Startups</h4>
                         <table class="table table-bordered table-striped">
                             <thead>
-                            <tr>
-                                <th>StartUp Name</th>
+								 <th>StartUp Name</th>
                                 <th>Number of Bets</th>
                                 <th>Value of Bets</th>
+<<<<<<< HEAD
                             </tr>
                             </thead>
                             <tbody>                          
@@ -188,6 +182,25 @@ if(isset($_SESSION['userID']))
                                 <td>Dooley</td>
                                 <td>july@example.com</td>
                             </tr>
+=======
+                                </thead>
+                                <tbody>
+								<?php
+									$query = "SELECT startupID, COUNT(*) as count, SUM(amount) as sumOf FROM bets GROUP BY startupID ORDER BY count DESC";
+									$result = mysqli_query($conn, $query);
+									for($x = 0; $x <= 5; $x++){
+										$row= mysqli_fetch_assoc($result);
+										
+										$startID = $row['startupID'];
+										$qu = "select * from `startup` WHERE `startupID` = \"$startID\"";
+										$re= mysqli_query($conn, $qu) or die ('Failed to query');
+										$startupBet= mysqli_fetch_array($re); 
+									
+									echo "<tr><td>".$startupBet['name']."</td><td>".$row['count']."</td><td>".$row['sumOf']."</td></tr>";
+									}
+								?>
+
+>>>>>>> kanakk
                             </tbody>
                          </table>
                     </div>
@@ -244,6 +257,11 @@ if(isset($_SESSION['userID']))
 
 <script>
 console.log("Hello from the other side");
+<<<<<<< HEAD
+=======
+$(document).ready(function(){   
+	$("#loginForm").submit(function(e) {
+>>>>>>> kanakk
 $(document).ready(function(){
 	$("#registerForm").hide();
 	$("#signupForm").show();
@@ -258,10 +276,12 @@ $(document).ready(function(){
 			$("#signupForm").hide();
 		}
     }); 
-
-
     $("#loginForm").submit(function(e) {
+<<<<<<< HEAD
         var url = "login.php"; // the script where you handle the form input.
+=======
+		var url = "login.php"; // the script where you handle the form input.
+>>>>>>> kanakk
 		$.ajax({
 			   type: "POST",
 			   url: url,
