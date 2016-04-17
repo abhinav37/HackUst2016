@@ -215,7 +215,7 @@ if(isset($_SESSION['userID']))
 
 <script>
 console.log("Hello from the other side");
-$(document).ready(function(){
+$(document).ready(function(){   
 	$("#loginForm").submit(function(e) {
 		var url = "login.php"; // the script where you handle the form input.
 		$.ajax({
