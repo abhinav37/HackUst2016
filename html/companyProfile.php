@@ -25,7 +25,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">BetNvest</a>
+      <a class="navbar-brand" href="index.php">BetNvest</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -113,7 +113,7 @@
                         echo "<tr class=\"companyTile\">\n"; 
                         echo "<td> <img class=\"img-thumbnail\" src=\"../Images/".$startup['logo']."\" alt><span>".$startup['name']."</span></td>\n"; 
                         echo "<td>".$startup['about']."</td>\n"; 
-                        echo "<td class=\"odds\" id=\"".$x."\">test". $x . "</td>\n";
+                        echo "<td class=\"odds\" id=\"".$x."\"></td>\n";
 			            echo "<input id=\"startupID\" type=\"hidden\" value=".$x.">"; 
                         echo "</tr>\n"; 
                        }
