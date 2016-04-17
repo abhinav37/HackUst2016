@@ -126,7 +126,7 @@
 </body>  
 <!--Script for Table-->
 <script>
-<<<<<<< HEAD
+
         function getOdds(startupID) {
         var url = "getOdds.php"; // the script where you handle the form input.
         $.ajax({
@@ -149,8 +149,7 @@
         });
     });
     
-=======
->>>>>>> b17f43429f5f97fec27fae54a992c46f6d0eff41
+
     $("#search").on("keyup", function() {
     var value = $(this).val();
     $("table tr ").each(function(index) {
